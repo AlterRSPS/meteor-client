@@ -1,306 +1,147 @@
-import java.io.IOException;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("is")
+@ObfuscatedName("ix")
 @Implements("Tile")
 public final class Tile extends Node {
-    @ObfuscatedName("af")
-    int plane;
-    @ObfuscatedName("an")
-    int x;
-    @ObfuscatedName("aw")
-    int y;
-    @ObfuscatedName("ac")
-    int originalPlane;
-    @ObfuscatedName("au")
-    @ObfuscatedSignature(
-            descriptor = "Ljc;"
-    )
-    SceneTilePaint paint;
-    @ObfuscatedName("ab")
-    @ObfuscatedSignature(
-            descriptor = "Lij;"
-    )
-    SceneTileModel model;
-    @ObfuscatedName("aq")
-    @ObfuscatedSignature(
-            descriptor = "Ljk;"
-    )
-    BoundaryObject boundaryObject;
-    @ObfuscatedName("al")
-    @ObfuscatedSignature(
-            descriptor = "Lje;"
-    )
-    WallDecoration wallDecoration;
-    @ObfuscatedName("at")
-    @ObfuscatedSignature(
-            descriptor = "Lig;"
-    )
-    FloorDecoration floorDecoration;
-    @ObfuscatedName("aa")
-    @ObfuscatedSignature(
-            descriptor = "Liy;"
-    )
-    ItemLayer itemLayer;
-    @ObfuscatedName("ay")
-    int gameObjectsCount;
-    @ObfuscatedName("ao")
-    @ObfuscatedSignature(
-            descriptor = "[Ljj;"
-    )
-    GameObject[] gameObjects = new GameObject[5];
-    @ObfuscatedName("ax")
-    int[] gameObjectEdgeMasks = new int[5];
-    @ObfuscatedName("ai")
-    int gameObjectsEdgeMask = 0;
-    @ObfuscatedName("ag")
-    int minPlane;
-    @ObfuscatedName("ah")
-    boolean drawPrimary;
-    @ObfuscatedName("av")
-    boolean drawSecondary;
-    @ObfuscatedName("ar")
-    boolean drawGameObjects;
-    @ObfuscatedName("am")
-    int drawGameObjectEdges;
-   @ObfuscatedName("as")
-   int field1987;
-   @ObfuscatedName("aj")
-   int field1969;
-   @ObfuscatedName("ak")
-   int field1989;
-    @ObfuscatedName("az")
-    @ObfuscatedSignature(
-            descriptor = "Lis;"
-    )
-    Tile linkedBelowTile;
+	@ObfuscatedName("at")
+	@Export("plane")
+	int plane;
+	// $FF: renamed from: x int
+	@ObfuscatedName("an")
+	@Export("x")
+	int field_1;
+	// $FF: renamed from: y int
+	@ObfuscatedName("av")
+	@Export("y")
+	int field_2;
+	@ObfuscatedName("as")
+	@Export("originalPlane")
+	int originalPlane;
+	@ObfuscatedName("ax")
+	@ObfuscatedSignature(
+		descriptor = "Ljn;"
+	)
+	@Export("paint")
+	SceneTilePaint paint;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Ljr;"
+	)
+	@Export("model")
+	SceneTileModel model;
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "Ljo;"
+	)
+	@Export("boundaryObject")
+	BoundaryObject boundaryObject;
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Ljs;"
+	)
+	@Export("wallDecoration")
+	WallDecoration wallDecoration;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lia;"
+	)
+	@Export("floorDecoration")
+	FloorDecoration floorDecoration;
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "Lio;"
+	)
+	@Export("itemLayer")
+	ItemLayer itemLayer;
+	@ObfuscatedName("ao")
+	@Export("gameObjectsCount")
+	int gameObjectsCount;
+	@ObfuscatedName("aa")
+	@ObfuscatedSignature(
+		descriptor = "[Ljj;"
+	)
+	@Export("gameObjects")
+	GameObject[] gameObjects;
+	@ObfuscatedName("aj")
+	@Export("gameObjectEdgeMasks")
+	int[] gameObjectEdgeMasks;
+	@ObfuscatedName("ad")
+	@Export("gameObjectsEdgeMask")
+	int gameObjectsEdgeMask;
+	@ObfuscatedName("ac")
+	@Export("minPlane")
+	int minPlane;
+	@ObfuscatedName("ag")
+	@Export("drawPrimary")
+	boolean drawPrimary;
+	@ObfuscatedName("ar")
+	@Export("drawSecondary")
+	boolean drawSecondary;
+	@ObfuscatedName("ah")
+	@Export("drawGameObjects")
+	boolean drawGameObjects;
+	@ObfuscatedName("az")
+	@Export("drawGameObjectEdges")
+	int drawGameObjectEdges;
+	@ObfuscatedName("au")
+	int field2000;
+	@ObfuscatedName("ai")
+	int field1994;
+	@ObfuscatedName("aq")
+	int field1997;
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "Lix;"
+	)
+	@Export("linkedBelowTile")
+	Tile linkedBelowTile;
 
-   Tile(int var1, int var2, int var3) {
-      this.originalPlane = this.plane = var1;
-      this.x = var2;
-      this.y = var3;
-   }
+	Tile(int var1, int var2, int var3) {
+		super();
+		this.gameObjects = new GameObject[5];
+		this.gameObjectEdgeMasks = new int[5];
+		this.gameObjectsEdgeMask = 0;
+		this.originalPlane = this.plane = var1;
+		this.field_1 = var2;
+		this.field_2 = var3;
+	}
 
-   @ObfuscatedName("af")
-   @ObfuscatedSignature(
-      descriptor = "(B)Z",
-      garbageValue = "-5"
-   )
-   public static boolean method1214() {
-      long var0 = class96.clockNow();
-      int var2 = (int)(var0 - NetCache.field3509);
-      NetCache.field3509 = var0;
-      if (var2 > 200) {
-         var2 = 200;
-      }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(II)I",
+		garbageValue = "1287745138"
+	)
+	@Export("iLog")
+	public static int iLog(int var0) {
+		int var1 = 0;
+		if (var0 < 0 || var0 >= 65536) {
+			var0 >>>= 16;
+			var1 += 16;
+		}
 
-      NetCache.NetCache_loadTime += var2;
-      if (NetCache.NetCache_pendingResponsesCount == 0 && NetCache.NetCache_pendingPriorityResponsesCount == 0 && NetCache.NetCache_pendingWritesCount == 0 && NetCache.NetCache_pendingPriorityWritesCount == 0) {
-         return true;
-      } else if (NetCache.NetCache_socket == null) {
-         return false;
-      } else {
-         try {
-            if (NetCache.NetCache_loadTime > 30000) {
-               throw new IOException();
-            } else {
-               NetFileRequest var3;
-               Buffer var4;
-               while(NetCache.NetCache_pendingPriorityResponsesCount < 200 && NetCache.NetCache_pendingPriorityWritesCount > 0) {
-                  var3 = (NetFileRequest)NetCache.NetCache_pendingPriorityWrites.first();
-                  var4 = new Buffer(4);
-                  var4.writeByte(1);
-                  var4.writeMedium((int)var3.key);
-                  NetCache.NetCache_socket.write(var4.array, 0, 4);
-                  NetCache.NetCache_pendingPriorityResponses.put(var3, var3.key);
-                  --NetCache.NetCache_pendingPriorityWritesCount;
-                  ++NetCache.NetCache_pendingPriorityResponsesCount;
-               }
+		if (var0 >= 256) {
+			var0 >>>= 8;
+			var1 += 8;
+		}
 
-               while(NetCache.NetCache_pendingResponsesCount < 200 && NetCache.NetCache_pendingWritesCount > 0) {
-                  var3 = (NetFileRequest)NetCache.NetCache_pendingWritesQueue.removeLast();
-                  var4 = new Buffer(4);
-                  var4.writeByte(0);
-                  var4.writeMedium((int)var3.key);
-                  NetCache.NetCache_socket.write(var4.array, 0, 4);
-                  var3.removeDual();
-                  NetCache.NetCache_pendingResponses.put(var3, var3.key);
-                  --NetCache.NetCache_pendingWritesCount;
-                  ++NetCache.NetCache_pendingResponsesCount;
-               }
+		if (var0 >= 16) {
+			var0 >>>= 4;
+			var1 += 4;
+		}
 
-               for(int var15 = 0; var15 < 100; ++var15) {
-                  int var16 = NetCache.NetCache_socket.available();
-                  if (var16 < 0) {
-                     throw new IOException();
-                  }
+		if (var0 >= 4) {
+			var0 >>>= 2;
+			var1 += 2;
+		}
 
-                  if (var16 == 0) {
-                     break;
-                  }
+		if (var0 >= 1) {
+			var0 >>>= 1;
+			++var1;
+		}
 
-                  NetCache.NetCache_loadTime = 0;
-                  byte var5 = 0;
-                  if (Script.NetCache_currentResponse == null) {
-                     var5 = 8;
-                  } else if (NetCache.field3504 == 0) {
-                     var5 = 1;
-                  }
-
-                  int var6;
-                  int var7;
-                  int var8;
-                  int var10;
-                  if (var5 > 0) {
-                     var6 = var5 - NetCache.NetCache_responseHeaderBuffer.offset;
-                     if (var6 > var16) {
-                        var6 = var16;
-                     }
-
-                     NetCache.NetCache_socket.read(NetCache.NetCache_responseHeaderBuffer.array, NetCache.NetCache_responseHeaderBuffer.offset, var6);
-                     if (NetCache.field3506 != 0) {
-                        for(var7 = 0; var7 < var6; ++var7) {
-                           NetCache.NetCache_responseHeaderBuffer.array[NetCache.NetCache_responseHeaderBuffer.offset + var7] ^= NetCache.field3506;
-                        }
-                     }
-
-                     NetCache.NetCache_responseHeaderBuffer.offset += var6;
-                     if (NetCache.NetCache_responseHeaderBuffer.offset < var5) {
-                        break;
-                     }
-
-                     if (Script.NetCache_currentResponse == null) {
-                        NetCache.NetCache_responseHeaderBuffer.offset = 0;
-                        var7 = NetCache.NetCache_responseHeaderBuffer.readUnsignedByte();
-                        var8 = NetCache.NetCache_responseHeaderBuffer.readUnsignedShort();
-                        int var9 = NetCache.NetCache_responseHeaderBuffer.readUnsignedByte();
-                        var10 = NetCache.NetCache_responseHeaderBuffer.readInt();
-                        long var11 = (long)(var8 + (var7 << 16));
-                        NetFileRequest var13 = (NetFileRequest)NetCache.NetCache_pendingPriorityResponses.get(var11);
-                        NetCache.field3498 = true;
-                        if (var13 == null) {
-                           var13 = (NetFileRequest)NetCache.NetCache_pendingResponses.get(var11);
-                           NetCache.field3498 = false;
-                        }
-
-                        if (var13 == null) {
-                           throw new IOException();
-                        }
-
-                        int var14 = var9 == 0 ? 5 : 9;
-                        Script.NetCache_currentResponse = var13;
-                        NetCache.NetCache_responseArchiveBuffer = new Buffer(var14 + var10 + Script.NetCache_currentResponse.padding);
-                        NetCache.NetCache_responseArchiveBuffer.writeByte(var9);
-                        NetCache.NetCache_responseArchiveBuffer.writeInt(var10);
-                        NetCache.field3504 = 8;
-                        NetCache.NetCache_responseHeaderBuffer.offset = 0;
-                     } else if (NetCache.field3504 == 0) {
-                        if (NetCache.NetCache_responseHeaderBuffer.array[0] == -1) {
-                           NetCache.field3504 = 1;
-                           NetCache.NetCache_responseHeaderBuffer.offset = 0;
-                        } else {
-                           Script.NetCache_currentResponse = null;
-                        }
-                     }
-                  } else {
-                     var6 = NetCache.NetCache_responseArchiveBuffer.array.length - Script.NetCache_currentResponse.padding;
-                     var7 = 512 - NetCache.field3504;
-                     if (var7 > var6 - NetCache.NetCache_responseArchiveBuffer.offset) {
-                        var7 = var6 - NetCache.NetCache_responseArchiveBuffer.offset;
-                     }
-
-                     if (var7 > var16) {
-                        var7 = var16;
-                     }
-
-                     NetCache.NetCache_socket.read(NetCache.NetCache_responseArchiveBuffer.array, NetCache.NetCache_responseArchiveBuffer.offset, var7);
-                     if (NetCache.field3506 != 0) {
-                        for(var8 = 0; var8 < var7; ++var8) {
-                           NetCache.NetCache_responseArchiveBuffer.array[var8 + NetCache.NetCache_responseArchiveBuffer.offset] ^= NetCache.field3506;
-                        }
-                     }
-
-                     NetCache.NetCache_responseArchiveBuffer.offset += var7;
-                     NetCache.field3504 += var7;
-                     if (var6 == NetCache.NetCache_responseArchiveBuffer.offset) {
-                        if (Script.NetCache_currentResponse.key == 16711935L) {
-                           Login.field764 = NetCache.NetCache_responseArchiveBuffer;
-
-                           for(var8 = 0; var8 < 256; ++var8) {
-                              Archive var17 = NetCache.NetCache_archives[var8];
-                              if (var17 != null) {
-                                 Login.field764.offset = var8 * 8 + 5;
-                                 if (Login.field764.offset >= Login.field764.array.length) {
-                                    if (!var17.field3465) {
-                                       throw new RuntimeException("");
-                                    }
-
-                                    var17.method1872();
-                                 } else {
-                                    var10 = Login.field764.readInt();
-                                    int var18 = Login.field764.readInt();
-                                    var17.loadIndex(var10, var18);
-                                 }
-                              }
-                           }
-                        } else {
-                           NetCache.NetCache_crc.reset();
-                           NetCache.NetCache_crc.update(NetCache.NetCache_responseArchiveBuffer.array, 0, var6);
-                           var8 = (int)NetCache.NetCache_crc.getValue();
-                           if (var8 != Script.NetCache_currentResponse.crc) {
-                              try {
-                                 NetCache.NetCache_socket.close();
-                              } catch (Exception var20) {
-                                 ;
-                              }
-
-                              ++NetCache.NetCache_crcMismatches;
-                              NetCache.NetCache_socket = null;
-                              NetCache.field3506 = (byte)((int)(Math.random() * 255.0D + 1.0D));
-                              return false;
-                           }
-
-                           NetCache.NetCache_crcMismatches = 0;
-                           NetCache.NetCache_ioExceptions = 0;
-                           Script.NetCache_currentResponse.archive.write((int)(Script.NetCache_currentResponse.key & 65535L), NetCache.NetCache_responseArchiveBuffer.array, 16711680L == (Script.NetCache_currentResponse.key & 16711680L), NetCache.field3498);
-                        }
-
-                        Script.NetCache_currentResponse.remove();
-                        if (NetCache.field3498) {
-                           --NetCache.NetCache_pendingPriorityResponsesCount;
-                        } else {
-                           --NetCache.NetCache_pendingResponsesCount;
-                        }
-
-                        NetCache.field3504 = 0;
-                        Script.NetCache_currentResponse = null;
-                        NetCache.NetCache_responseArchiveBuffer = null;
-                     } else {
-                        if (NetCache.field3504 != 512) {
-                           break;
-                        }
-
-                        NetCache.field3504 = 0;
-                     }
-                  }
-               }
-
-               return true;
-            }
-         } catch (IOException var21) {
-            try {
-               NetCache.NetCache_socket.close();
-            } catch (Exception var19) {
-               ;
-            }
-
-            ++NetCache.NetCache_ioExceptions;
-            NetCache.NetCache_socket = null;
-            return false;
-         }
-      }
-   }
+		return var0 + var1;
+	}
 }

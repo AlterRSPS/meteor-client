@@ -1,29 +1,45 @@
+import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("sc")
-public class class484 {
-   @ObfuscatedName("aw")
-   static final int field4044 = (int)(Math.pow(2.0D, 4.0D) - 1.0D);
-   @ObfuscatedName("ac")
-   static final int field4045 = (int)(Math.pow(2.0D, 8.0D) - 1.0D);
+@ObfuscatedName("ss")
+class class484 implements Iterator {
+	@ObfuscatedName("at")
+	int field4033;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lsp;"
+	)
+	@Export("this$0")
+	@ObfuscatedName("this$0")
+	final class485 this$0;
 
-    @ObfuscatedName("aw")
-    @ObfuscatedSignature(
-            descriptor = "(Lnm;III)Ltq;",
-            garbageValue = "-1572989467"
-    )
-    public static SpritePixels SpriteBuffer_getSprite(AbstractArchive var0, int var1, int var2) {
-      byte[] var4 = var0.takeFile(var1, var2);
-      boolean var3;
-      if (var4 == null) {
-         var3 = false;
-      } else {
-         class485.SpriteBuffer_decode(var4);
-         var3 = true;
-      }
+	@ObfuscatedSignature(
+		descriptor = "(Lsp;)V"
+	)
+	class484(class485 var1) {
+		super();
+		this.this$0 = var1;
+	}
 
-      return !var3 ? null : ObjTypeCustomisation.method973();
-   }
+	@Export("hasNext")
+	@ObfuscatedName("hasNext")
+	public boolean hasNext() {
+		return this.field4033 < this.this$0.method2284();
+	}
+
+	@Export("next")
+	@ObfuscatedName("next")
+	public Object next() {
+		int var1 = ++this.field4033 - 1;
+		class444 var2 = (class444)this.this$0.field4036.get((long)var1);
+		return var2 != null ? var2 : this.this$0.method2436(var1);
+	}
+
+	@Export("remove")
+	@ObfuscatedName("remove")
+	public void remove() {
+		throw new UnsupportedOperationException();
+	}
 }

@@ -1,19 +1,15 @@
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("qm")
+@ObfuscatedName("qq")
 public class class440 {
-   @ObfuscatedName("ax")
-   static final int[] field3831 = new int[2048];
-   @ObfuscatedName("ai")
-   static final int[] field3832 = new int[2048];
+	@ObfuscatedName("at")
+	float[] field3827;
+	@ObfuscatedName("an")
+	int field3828;
 
-   static {
-      double var0 = 0.0030679615757712823D;
-
-      for(int var2 = 0; var2 < 2048; ++var2) {
-         field3831[var2] = (int)(65536.0D * Math.sin(var0 * (double)var2));
-         field3832[var2] = (int)(65536.0D * Math.cos((double)var2 * var0));
-      }
-
-   }
+	class440(float[] var1, int var2) {
+		super();
+		this.field3827 = var1;
+		this.field3828 = var2;
+	}
 }

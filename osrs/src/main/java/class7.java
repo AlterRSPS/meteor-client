@@ -5,329 +5,232 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("al")
+@ObfuscatedName("ak")
 public class class7 {
-    @ObfuscatedName("gm")
-    static int playerUUIDLength;
-    @ObfuscatedName("mp")
-    @ObfuscatedSignature(
-            descriptor = "Lim;"
-    )
-    static TextureProvider textureProvider;
-   @ObfuscatedName("af")
-   ExecutorService field16 = Executors.newSingleThreadExecutor();
-   @ObfuscatedName("an")
-   Future field14;
-   @ObfuscatedName("aw")
-   @ObfuscatedSignature(
-      descriptor = "Lsg;"
-   )
-   final Buffer field11;
-   @ObfuscatedName("ac")
-   @ObfuscatedSignature(
-      descriptor = "Lac;"
-   )
-   final class3 field12;
+	@ObfuscatedName("at")
+	ExecutorService field9;
+	@ObfuscatedName("an")
+	Future field10;
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "Ltz;"
+	)
+	final Buffer field12;
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "Las;"
+	)
+	final class3 field11;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lsg;Lac;)V"
-   )
-   public class7(Buffer var1, class3 var2) {
-      this.field11 = var1;
-      this.field12 = var2;
-      this.method23();
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Ltz;Las;)V"
+	)
+	public class7(Buffer var1, class3 var2) {
+		super();
+		this.field9 = Executors.newSingleThreadExecutor();
+		this.field12 = var1;
+		this.field11 = var2;
+		this.method20();
+	}
 
-   @ObfuscatedName("af")
-   @ObfuscatedSignature(
-      descriptor = "(I)Z",
-      garbageValue = "-571674084"
-   )
-   public boolean method25() {
-      return this.field14.isDone();
-   }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(I)Z",
+		garbageValue = "443618027"
+	)
+	public boolean method17() {
+		return this.field10.isDone();
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "47"
-   )
-   public void method21() {
-      this.field16.shutdown();
-      this.field16 = null;
-   }
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "1008705538"
+	)
+	public void method18() {
+		this.field9.shutdown();
+		this.field9 = null;
+	}
 
-   @ObfuscatedName("aw")
-   @ObfuscatedSignature(
-      descriptor = "(I)Lsg;",
-      garbageValue = "1213555586"
-   )
-   public Buffer method22() {
-      try {
-         return (Buffer)this.field14.get();
-      } catch (Exception var2) {
-         return null;
-      }
-   }
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(I)Ltz;",
+		garbageValue = "-1569723442"
+	)
+	public Buffer method19() {
+		try {
+			return (Buffer)this.field10.get();
+		} catch (Exception var2) {
+			return null;
+		}
+	}
 
-   @ObfuscatedName("ac")
-   @ObfuscatedSignature(
-      descriptor = "(S)V",
-      garbageValue = "32199"
-   )
-   void method23() {
-      this.field14 = this.field16.submit(new class1(this, this.field11, this.field12));
-   }
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(S)V",
+		garbageValue = "-28030"
+	)
+	void method20() {
+		this.field10 = this.field9.submit(new class1(this, this.field12, this.field11));
+	}
 
-    @ObfuscatedName("aw")
-    @ObfuscatedSignature(
-            descriptor = "(DIII)V",
-            garbageValue = "-1907908914"
-    )
-    static void Rasterizer3D_buildPalette(double var0, int var2, int var3) {
-      int var4 = var2 * 128;
+	@ObfuscatedName("ax")
+	@ObfuscatedSignature(
+		descriptor = "(CI)C",
+		garbageValue = "557899842"
+	)
+	static char method21(char var0) {
+		switch(var0) {
+		case ' ':
+		case '-':
+		case '_':
+		case ' ':
+			return '_';
+		case '#':
+		case '[':
+		case ']':
+			return var0;
+		case 'À':
+		case 'Á':
+		case 'Â':
+		case 'Ã':
+		case 'Ä':
+		case 'à':
+		case 'á':
+		case 'â':
+		case 'ã':
+		case 'ä':
+			return 'a';
+		case 'Ç':
+		case 'ç':
+			return 'c';
+		case 'È':
+		case 'É':
+		case 'Ê':
+		case 'Ë':
+		case 'è':
+		case 'é':
+		case 'ê':
+		case 'ë':
+			return 'e';
+		case 'Í':
+		case 'Î':
+		case 'Ï':
+		case 'í':
+		case 'î':
+		case 'ï':
+			return 'i';
+		case 'Ñ':
+		case 'ñ':
+			return 'n';
+		case 'Ò':
+		case 'Ó':
+		case 'Ô':
+		case 'Õ':
+		case 'Ö':
+		case 'ò':
+		case 'ó':
+		case 'ô':
+		case 'õ':
+		case 'ö':
+			return 'o';
+		case 'Ù':
+		case 'Ú':
+		case 'Û':
+		case 'Ü':
+		case 'ù':
+		case 'ú':
+		case 'û':
+		case 'ü':
+			return 'u';
+		case 'ß':
+			return 'b';
+		case 'ÿ':
+		case 'Ÿ':
+			return 'y';
+		default:
+			return Character.toLowerCase(var0);
+		}
+	}
 
-      for(int var5 = var2; var5 < var3; ++var5) {
-         double var6 = (double)(var5 >> 3) / 64.0D + 0.0078125D;
-         double var8 = 0.0625D + (double)(var5 & 7) / 8.0D;
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;B)V",
+		garbageValue = "-111"
+	)
+	static final void method22(String var0) {
+		PacketBufferNode var1 = ObjectComposition.getPacketBufferNode(ClientPacket.field2487, Client.packetWriter.isaacCipher);
+		var1.packetBuffer.writeByte(Widget.stringCp1252NullTerminatedByteSize(var0));
+		var1.packetBuffer.writeStringCp1252NullTerminated(var0);
+		Client.packetWriter.addNode(var1);
+	}
 
-         for(int var10 = 0; var10 < 128; ++var10) {
-            double var11 = (double)var10 / 128.0D;
-            double var13 = var11;
-            double var15 = var11;
-            double var17 = var11;
-            if (var8 != 0.0D) {
-               double var19;
-               if (var11 < 0.5D) {
-                  var19 = var11 * (var8 + 1.0D);
-               } else {
-                  var19 = var8 + var11 - var8 * var11;
-               }
+	@ObfuscatedName("jf")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-541537538"
+	)
+	static final void method23() {
+		int var0 = class180.menuX;
+		int var1 = NewShit.menuY;
+		int var2 = class237.field2151;
+		int var3 = class60.field313;
+		int var4 = 6116423;
+		Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1, var2, var3, var4);
+		Rasterizer2D.Rasterizer2D_fillRectangle(var0 + 1, var1 + 1, var2 - 2, 16, 0);
+		Rasterizer2D.Rasterizer2D_drawRectangle(var0 + 1, var1 + 18, var2 - 2, var3 - 19, 0);
+		class166.fontBold12.draw("Choose Option", var0 + 3, var1 + 14, var4, -1);
+		int var5 = MouseHandler.MouseHandler_x * -1367600295;
+		int var6 = MouseHandler.MouseHandler_y * -808246845;
 
-               double var21 = var11 * 2.0D - var19;
-               double var23 = var6 + 0.3333333333333333D;
-               if (var23 > 1.0D) {
-                  --var23;
-               }
+		int var7;
+		int var8;
+		int var9;
+		for (var7 = 0; var7 < Client.menuOptionsCount; ++var7) {
+			var8 = var1 + (Client.menuOptionsCount - 1 - var7) * 15 + 31;
+			var9 = 16777215;
+			if (var5 > var0 && var5 < var2 + var0 && var6 > var8 - 13 && var6 < var8 + 3) {
+				var9 = 16776960;
+			}
 
-               double var27 = var6 - 0.3333333333333333D;
-               if (var27 < 0.0D) {
-                  ++var27;
-               }
+			Font var12 = class166.fontBold12;
+			String var13;
+			if (var7 < 0) {
+				var13 = "";
+			} else if (Client.menuTargets[var7].length() > 0) {
+				var13 = Client.menuActions[var7] + " " + Client.menuTargets[var7];
+			} else {
+				var13 = Client.menuActions[var7];
+			}
 
-               if (var23 * 6.0D < 1.0D) {
-                  var13 = var23 * 6.0D * (var19 - var21) + var21;
-               } else if (var23 * 2.0D < 1.0D) {
-                  var13 = var19;
-               } else if (var23 * 3.0D < 2.0D) {
-                  var13 = var21 + 6.0D * (0.6666666666666666D - var23) * (var19 - var21);
-               } else {
-                  var13 = var21;
-               }
+			var12.draw(var13, var0 + 3, var8, var9, 0);
+		}
 
-               if (var6 * 6.0D < 1.0D) {
-                  var15 = var21 + (var19 - var21) * 6.0D * var6;
-               } else if (var6 * 2.0D < 1.0D) {
-                  var15 = var19;
-               } else if (var6 * 3.0D < 2.0D) {
-                  var15 = var21 + (var19 - var21) * (0.6666666666666666D - var6) * 6.0D;
-               } else {
-                  var15 = var21;
-               }
+		var7 = class180.menuX;
+		var8 = NewShit.menuY;
+		var9 = class237.field2151;
+		int var10 = class60.field313;
 
-               if (var27 * 6.0D < 1.0D) {
-                  var17 = var27 * (var19 - var21) * 6.0D + var21;
-               } else if (var27 * 2.0D < 1.0D) {
-                  var17 = var19;
-               } else if (var27 * 3.0D < 2.0D) {
-                  var17 = 6.0D * (var19 - var21) * (0.6666666666666666D - var27) + var21;
-               } else {
-                  var17 = var21;
-               }
-            }
+		for (int var11 = 0; var11 < Client.rootWidgetCount; ++var11) {
+			if (Client.rootWidgetWidths[var11] + Client.rootWidgetXs[var11] > var7 && Client.rootWidgetXs[var11] < var7 + var9 && Client.rootWidgetHeights[var11] + Client.rootWidgetYs[var11] > var8 && Client.rootWidgetYs[var11] < var10 + var8) {
+				Client.field405[var11] = true;
+			}
+		}
 
-            int var29 = (int)(var13 * 256.0D);
-            int var20 = (int)(var15 * 256.0D);
-            int var30 = (int)(var17 * 256.0D);
-            int var22 = var30 + (var20 << 8) + (var29 << 16);
-            var22 = UrlRequest.Rasterizer3D_brighten(var22, var0);
-            if (var22 == 0) {
-               var22 = 1;
-            }
+	}
 
-            Rasterizer3D.Rasterizer3D_colorPalette[var4++] = var22;
-         }
-      }
-
-   }
-
-    @ObfuscatedName("at")
-    @ObfuscatedSignature(
-            descriptor = "(Lmq;I[B[BI)V",
-            garbageValue = "1887295232"
-    )
-    static final void Widget_setKey(Widget var0, int var1, byte[] var2, byte[] var3) {
-      if (var0.field2954 == null) {
-         if (var2 == null) {
-            return;
-         }
-
-         var0.field2954 = new byte[11][];
-         var0.field2955 = new byte[11][];
-         var0.field2936 = new int[11];
-         var0.field2977 = new int[11];
-      }
-
-      var0.field2954[var1] = var2;
-      if (var2 != null) {
-         var0.field2891 = true;
-      } else {
-         var0.field2891 = false;
-
-         for(int var4 = 0; var4 < var0.field2954.length; ++var4) {
-            if (var0.field2954[var4] != null) {
-               var0.field2891 = true;
-               break;
-            }
-         }
-      }
-
-      var0.field2955[var1] = var3;
-   }
-
-    @ObfuscatedName("md")
-    @ObfuscatedSignature(
-            descriptor = "(II)V",
-            garbageValue = "2026496728"
-    )
-    static final void changeGameOptions(int var0) {
-      ClientPacket.process();
-      class18.method71();
-      int var1 = GraphicsDefaults.VarpDefinition_get(var0).type;
-      if (var1 != 0) {
-         int var2 = Varps.Varps_main[var0];
-         if (var1 == 1) {
-            if (var2 == 1) {
-               ScriptFrame.method341(0.9D);
-            }
-
-            if (var2 == 2) {
-               ScriptFrame.method341(0.8D);
-            }
-
-            if (var2 == 3) {
-               ScriptFrame.method341(0.7D);
-            }
-
-            if (var2 == 4) {
-               ScriptFrame.method341(0.6D);
-            }
-         }
-
-         if (var1 == 3) {
-            if (var2 == 0) {
-               class86.method502(255);
-            }
-
-            if (var2 == 1) {
-               class86.method502(192);
-            }
-
-            if (var2 == 2) {
-               class86.method502(128);
-            }
-
-            if (var2 == 3) {
-               class86.method502(64);
-            }
-
-            if (var2 == 4) {
-               class86.method502(0);
-            }
-         }
-
-         if (var1 == 4) {
-            if (var2 == 0) {
-               class130.method764(127);
-            }
-
-            if (var2 == 1) {
-               class130.method764(96);
-            }
-
-            if (var2 == 2) {
-               class130.method764(64);
-            }
-
-            if (var2 == 3) {
-               class130.method764(32);
-            }
-
-            if (var2 == 4) {
-               class130.method764(0);
-            }
-         }
-
-         if (var1 == 5) {
-            Client.leftClickOpensMenu = var2 == 1;
-         }
-
-         if (var1 == 6) {
-            Client.chatEffects = var2;
-         }
-
-         if (var1 == 9) {
-            ;
-         }
-
-         if (var1 == 10) {
-            if (var2 == 0) {
-               class135.method783(127);
-            }
-
-            if (var2 == 1) {
-               class135.method783(96);
-            }
-
-            if (var2 == 2) {
-               class135.method783(64);
-            }
-
-            if (var2 == 3) {
-               class135.method783(32);
-            }
-
-            if (var2 == 4) {
-               class135.method783(0);
-            }
-         }
-
-         if (var1 == 17) {
-            Client.followerIndex = var2 & '\uffff';
-         }
-
-         if (var1 == 18) {
-            Client.playerAttackOption = (AttackOption)StructComposition.findEnumerated(UserComparator4.method685(), var2);
-            if (Client.playerAttackOption == null) {
-               Client.playerAttackOption = AttackOption.AttackOption_dependsOnCombatLevels;
-            }
-         }
-
-         if (var1 == 19) {
-            if (var2 == -1) {
-               Client.combatTargetPlayerIndex = -1;
-            } else {
-               Client.combatTargetPlayerIndex = var2 & 2047;
-            }
-         }
-
-         if (var1 == 22) {
-            Client.npcAttackOption = (AttackOption)StructComposition.findEnumerated(UserComparator4.method685(), var2);
-            if (Client.npcAttackOption == null) {
-               Client.npcAttackOption = AttackOption.AttackOption_dependsOnCombatLevels;
-            }
-         }
-
-      }
-   }
+	@ObfuscatedName("my")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;I)V",
+		garbageValue = "1677894938"
+	)
+	@Export("Clan_joinChat")
+	static final void Clan_joinChat(String var0) {
+		if (!var0.equals("")) {
+			PacketBufferNode var1 = ObjectComposition.getPacketBufferNode(ClientPacket.field2515, Client.packetWriter.isaacCipher);
+			var1.packetBuffer.writeByte(Widget.stringCp1252NullTerminatedByteSize(var0));
+			var1.packetBuffer.writeStringCp1252NullTerminated(var0);
+			Client.packetWriter.addNode(var1);
+		}
+	}
 }

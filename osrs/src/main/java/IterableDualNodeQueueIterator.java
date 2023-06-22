@@ -4,60 +4,64 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ok")
+@ObfuscatedName("ox")
 @Implements("IterableDualNodeQueueIterator")
 public class IterableDualNodeQueueIterator implements Iterator {
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "Lox;"
-    )
-    IterableDualNodeQueue queue;
-    @ObfuscatedName("an")
-    @ObfuscatedSignature(
-            descriptor = "Lrk;"
-    )
-    DualNode head;
-    @ObfuscatedName("aw")
-    @ObfuscatedSignature(
-            descriptor = "Lrk;"
-    )
-    DualNode last = null;
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Los;"
+	)
+	@Export("queue")
+	IterableDualNodeQueue queue;
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "Lrh;"
+	)
+	@Export("head")
+	DualNode head;
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "Lrh;"
+	)
+	@Export("last")
+	DualNode last;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lox;)V"
-   )
-   IterableDualNodeQueueIterator(IterableDualNodeQueue var1) {
-      this.queue = var1;
-      this.head = this.queue.sentinel.previousDual;
-      this.last = null;
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Los;)V"
+	)
+	IterableDualNodeQueueIterator(IterableDualNodeQueue var1) {
+		super();
+		this.last = null;
+		this.queue = var1;
+		this.head = this.queue.sentinel.previousDual;
+		this.last = null;
+	}
 
-    @ObfuscatedName("next")
-    public Object next() {
-      DualNode var1 = this.head;
-      if (var1 == this.queue.sentinel) {
-         var1 = null;
-         this.head = null;
-      } else {
-         this.head = var1.previousDual;
-      }
+	@Export("next")
+	@ObfuscatedName("next")
+	public Object next() {
+		DualNode var1 = this.head;
+		if (var1 == this.queue.sentinel) {
+			var1 = null;
+			this.head = null;
+		} else {
+			this.head = var1.previousDual;
+		}
 
-      this.last = var1;
-      return var1;
-   }
+		this.last = var1;
+		return var1;
+	}
 
-    @ObfuscatedName("hasNext")
-    public boolean hasNext() {
-      return this.queue.sentinel != this.head;
-   }
+	@Export("hasNext")
+	@ObfuscatedName("hasNext")
+	public boolean hasNext() {
+		return this.queue.sentinel != this.head;
+	}
 
-    @ObfuscatedName("remove")
-    public void remove() {
-      if (this.last == null) {
-         throw new IllegalStateException();
-      } else {
-         this.last.removeDual();
-         this.last = null;
-      }
-   }
+	@Export("remove")
+	@ObfuscatedName("remove")
+	public void remove() {
+		this.last.removeDual();
+		this.last = null;
+	}
 }

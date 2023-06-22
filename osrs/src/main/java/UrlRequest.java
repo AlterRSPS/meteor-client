@@ -4,75 +4,195 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ez")
+@ObfuscatedName("et")
 @Implements("UrlRequest")
 public class UrlRequest {
-   @ObfuscatedName("an")
-   static int field1151 = -1;
-   @ObfuscatedName("aw")
-   static int field1150 = -2;
-   @ObfuscatedName("at")
-   public static int field1154;
-   @ObfuscatedName("af")
-   final URL field1152;
-   @ObfuscatedName("ac")
-   volatile int field1149;
-    @ObfuscatedName("au")
-    volatile byte[] response0;
+	@ObfuscatedName("an")
+	static int field1153;
+	@ObfuscatedName("av")
+	static int field1154;
+	@ObfuscatedName("at")
+	final URL field1155;
+	@ObfuscatedName("as")
+	volatile int field1157;
+	@ObfuscatedName("ax")
+	@Export("response0")
+	volatile byte[] response0;
 
-   UrlRequest(URL var1) {
-      this.field1149 = field1151;
-      this.field1152 = var1;
-   }
+	static {
+		field1153 = -1;
+		field1154 = -2;
+	}
 
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "(B)Z",
-            garbageValue = "-54"
-    )
-    public boolean isDone() {
-      return this.field1149 != field1151;
-   }
+	UrlRequest(URL var1) {
+		super();
+		this.field1157 = field1153;
+		this.field1155 = var1;
+	}
 
-    @ObfuscatedName("an")
-    @ObfuscatedSignature(
-            descriptor = "(B)[B",
-            garbageValue = "76"
-    )
-    public byte[] getResponse() {
-      return this.response0;
-   }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(B)Z",
+		garbageValue = "-57"
+	)
+	@Export("isDone")
+	public boolean isDone() {
+		return this.field1157 != field1153;
+	}
 
-   @ObfuscatedName("aw")
-   @ObfuscatedSignature(
-      descriptor = "(B)Ljava/lang/String;",
-      garbageValue = "82"
-   )
-   public String method679() {
-      return this.field1152.toString();
-   }
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(B)[B",
+		garbageValue = "-91"
+	)
+	@Export("getResponse")
+	public byte[] getResponse() {
+		return this.response0;
+	}
 
-    @ObfuscatedName("ac")
-    static int Rasterizer3D_brighten(int var0, double var1) {
-      double var3 = (double)(var0 >> 16) / 256.0D;
-      double var5 = (double)(var0 >> 8 & 255) / 256.0D;
-      double var7 = (double)(var0 & 255) / 256.0D;
-      var3 = Math.pow(var3, var1);
-      var5 = Math.pow(var5, var1);
-      var7 = Math.pow(var7, var1);
-      int var9 = (int)(var3 * 256.0D);
-      int var10 = (int)(var5 * 256.0D);
-      int var11 = (int)(var7 * 256.0D);
-      return var11 + (var10 << 8) + (var9 << 16);
-   }
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(I)Ljava/lang/String;",
+		garbageValue = "1290466605"
+	)
+	public String method643() {
+		return this.field1155.toString();
+	}
 
-   @ObfuscatedName("as")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-560341895"
-   )
-   static void method680() {
-      class129.method763(24);
-      class205.setLoginResponseString("The game servers are currently being updated.", "Please wait a few minutes and try again.", "");
-   }
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(Ltl;B)V",
+		garbageValue = "-27"
+	)
+	static final void method640(PacketBuffer var0) {
+		int var1 = 0;
+		var0.importIndex();
+
+		byte[] var10000;
+		int var2;
+		int var3;
+		int var4;
+		for (var2 = 0; var2 < Players.Players_count; ++var2) {
+			var3 = Players.Players_indices[var2];
+			if ((Players.activityFlags[var3] & 1) == 0) {
+				if (var1 > 0) {
+					--var1;
+					var10000 = Players.activityFlags;
+					var10000[var3] = (byte)(var10000[var3] | 2);
+				} else {
+					var4 = var0.readBits(1);
+					if (var4 == 0) {
+						var1 = InterfaceParent.method452(var0);
+						var10000 = Players.activityFlags;
+						var10000[var3] = (byte)(var10000[var3] | 2);
+					} else {
+						class72.readPlayerUpdate(var0, var3);
+					}
+				}
+			}
+		}
+
+		var0.exportIndex();
+		if (var1 != 0) {
+			throw new RuntimeException();
+		} else {
+			var0.importIndex();
+
+			for (var2 = 0; var2 < Players.Players_count; ++var2) {
+				var3 = Players.Players_indices[var2];
+				if ((Players.activityFlags[var3] & 1) != 0) {
+					if (var1 > 0) {
+						--var1;
+						var10000 = Players.activityFlags;
+						var10000[var3] = (byte)(var10000[var3] | 2);
+					} else {
+						var4 = var0.readBits(1);
+						if (var4 == 0) {
+							var1 = InterfaceParent.method452(var0);
+							var10000 = Players.activityFlags;
+							var10000[var3] = (byte)(var10000[var3] | 2);
+						} else {
+							class72.readPlayerUpdate(var0, var3);
+						}
+					}
+				}
+			}
+
+			var0.exportIndex();
+			if (var1 != 0) {
+				throw new RuntimeException();
+			} else {
+				var0.importIndex();
+
+				for (var2 = 0; var2 < Players.Players_emptyIdxCount; ++var2) {
+					var3 = Players.Players_emptyIndices[var2];
+					if ((Players.activityFlags[var3] & 1) != 0) {
+						if (var1 > 0) {
+							--var1;
+							var10000 = Players.activityFlags;
+							var10000[var3] = (byte)(var10000[var3] | 2);
+						} else {
+							var4 = var0.readBits(1);
+							if (var4 == 0) {
+								var1 = InterfaceParent.method452(var0);
+								var10000 = Players.activityFlags;
+								var10000[var3] = (byte)(var10000[var3] | 2);
+							} else if (UserComparator7.updateExternalPlayer(var0, var3)) {
+								var10000 = Players.activityFlags;
+								var10000[var3] = (byte)(var10000[var3] | 2);
+							}
+						}
+					}
+				}
+
+				var0.exportIndex();
+				if (var1 != 0) {
+					throw new RuntimeException();
+				} else {
+					var0.importIndex();
+
+					for (var2 = 0; var2 < Players.Players_emptyIdxCount; ++var2) {
+						var3 = Players.Players_emptyIndices[var2];
+						if ((Players.activityFlags[var3] & 1) == 0) {
+							if (var1 > 0) {
+								--var1;
+								var10000 = Players.activityFlags;
+								var10000[var3] = (byte)(var10000[var3] | 2);
+							} else {
+								var4 = var0.readBits(1);
+								if (var4 == 0) {
+									var1 = InterfaceParent.method452(var0);
+									var10000 = Players.activityFlags;
+									var10000[var3] = (byte)(var10000[var3] | 2);
+								} else if (UserComparator7.updateExternalPlayer(var0, var3)) {
+									var10000 = Players.activityFlags;
+									var10000[var3] = (byte)(var10000[var3] | 2);
+								}
+							}
+						}
+					}
+
+					var0.exportIndex();
+					if (var1 != 0) {
+						throw new RuntimeException();
+					} else {
+						Players.Players_count = 0;
+						Players.Players_emptyIdxCount = 0;
+
+						for (var2 = 1; var2 < 2048; ++var2) {
+							var10000 = Players.activityFlags;
+							var10000[var2] = (byte)(var10000[var2] >> 1);
+							Player var5 = Client.players[var2];
+							if (var5 != null) {
+								Players.Players_indices[++Players.Players_count - 1] = var2;
+							} else {
+								Players.Players_emptyIndices[++Players.Players_emptyIdxCount - 1] = var2;
+							}
+						}
+
+					}
+				}
+			}
+		}
+	}
 }

@@ -3,132 +3,123 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("or")
+@ObfuscatedName("px")
 @Implements("Timer")
 public class Timer {
-   @ObfuscatedName("af")
-   long field3672 = -1L;
-   @ObfuscatedName("an")
-   long field3671 = -1L;
-   @ObfuscatedName("aw")
-   public boolean field3670 = false;
-   @ObfuscatedName("ac")
-   long field3673 = 0L;
-   @ObfuscatedName("au")
-   long field3674 = 0L;
-   @ObfuscatedName("ab")
-   long field3675 = 0L;
-   @ObfuscatedName("aq")
-   int field3676 = 0;
-   @ObfuscatedName("al")
-   int field3677 = 0;
-   @ObfuscatedName("at")
-   int field3678 = 0;
-   @ObfuscatedName("aa")
-   int field3679 = 0;
+	@ObfuscatedName("at")
+	long field3688;
+	@ObfuscatedName("an")
+	long field3685;
+	@ObfuscatedName("av")
+	public boolean field3690;
+	@ObfuscatedName("as")
+	long field3687;
+	@ObfuscatedName("ax")
+	long field3689;
+	@ObfuscatedName("ap")
+	long field3686;
+	@ObfuscatedName("ab")
+	int field3681;
+	@ObfuscatedName("ak")
+	int field3684;
+	@ObfuscatedName("ae")
+	int field3682;
+	@ObfuscatedName("af")
+	int field3683;
 
-   @ObfuscatedName("af")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-1033751982"
-   )
-   public void method2095() {
-      this.field3672 = class96.clockNow();
-   }
+	public Timer() {
+		super();
+		this.field3688 = -1L;
+		this.field3685 = -1L;
+		this.field3690 = false;
+		this.field3687 = 0L;
+		this.field3689 = 0L;
+		this.field3686 = 0L;
+		this.field3681 = 0;
+		this.field3684 = 0;
+		this.field3682 = 0;
+		this.field3683 = 0;
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-1996100766"
-   )
-   public void method2101() {
-      if (this.field3672 != -1L) {
-         this.field3674 = class96.clockNow() - this.field3672;
-         this.field3672 = -1L;
-      }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-2089124905"
+	)
+	public void method2109() {
+		this.field3688 = BoundaryObject.clockNow();
+	}
 
-   }
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-1927932111"
+	)
+	public void method2110() {
+		if (-1L != this.field3688) {
+			this.field3689 = BoundaryObject.clockNow() - this.field3688;
+			this.field3688 = -1L;
+		}
 
-   @ObfuscatedName("aw")
-   @ObfuscatedSignature(
-      descriptor = "(IB)V",
-      garbageValue = "13"
-   )
-   public void method2096(int var1) {
-      this.field3671 = class96.clockNow();
-      this.field3676 = var1;
-   }
+	}
 
-   @ObfuscatedName("ac")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "1585437622"
-   )
-   public void method2097() {
-      if (-1L != this.field3671) {
-         this.field3673 = class96.clockNow() - this.field3671;
-         this.field3671 = -1L;
-      }
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(II)V",
+		garbageValue = "-1221021078"
+	)
+	public void method2111(int var1) {
+		this.field3685 = BoundaryObject.clockNow();
+		this.field3681 = var1;
+	}
 
-      ++this.field3678;
-      this.field3670 = true;
-   }
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "1737596077"
+	)
+	public void method2112() {
+		if (this.field3685 != -1L) {
+			this.field3687 = BoundaryObject.clockNow() - this.field3685;
+			this.field3685 = -1L;
+		}
 
-   @ObfuscatedName("au")
-   @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "-90"
-   )
-   public void method2098() {
-      this.field3670 = false;
-      this.field3677 = 0;
-   }
+		++this.field3682;
+		this.field3690 = true;
+	}
 
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "2129657232"
-   )
-   public void method2099() {
-      this.method2097();
-   }
+	@ObfuscatedName("ax")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "431404039"
+	)
+	public void method2113() {
+		this.field3690 = false;
+		this.field3684 = 0;
+	}
 
-    @ObfuscatedName("aq")
-    @ObfuscatedSignature(
-            descriptor = "(Lsg;I)V",
-            garbageValue = "-1606158047"
-    )
-    public void write(Buffer var1) {
-      long var2 = this.field3674;
-      var2 /= 10L;
-      if (var2 < 0L) {
-         var2 = 0L;
-      } else if (var2 > 65535L) {
-         var2 = 65535L;
-      }
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-613072356"
+	)
+	public void method2114() {
+		this.method2112();
+	}
 
-      var1.writeShort((int)var2);
-      long var4 = this.field3673;
-      var4 /= 10L;
-      if (var4 < 0L) {
-         var4 = 0L;
-      } else if (var4 > 65535L) {
-         var4 = 65535L;
-      }
-
-      var1.writeShort((int)var4);
-      long var6 = this.field3675;
-      var6 /= 10L;
-      if (var6 < 0L) {
-         var6 = 0L;
-      } else if (var6 > 65535L) {
-         var6 = 65535L;
-      }
-
-      var1.writeShort((int)var6);
-      var1.writeShort(this.field3676);
-      var1.writeShort(this.field3677);
-      var1.writeShort(this.field3678);
-      var1.writeShort(this.field3679);
-   }
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "(Ltz;I)V",
+		garbageValue = "801850388"
+	)
+	@Export("write")
+	public void write(Buffer var1) {
+		class280.method1584(var1, this.field3689);
+		class280.method1584(var1, this.field3687);
+		class280.method1584(var1, this.field3686);
+		var1.writeShort(this.field3681);
+		var1.writeShort(this.field3684);
+		var1.writeShort(this.field3682);
+		var1.writeShort(this.field3683);
+	}
 }

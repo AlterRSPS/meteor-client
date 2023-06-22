@@ -34,7 +34,7 @@ public class _VanillaLauncher implements AppletStub, AppletContext {
 
     public void load() {
         gameWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        RuneLiteMenuEntry.isVanilla = true;
+        //RuneLiteMenuEntry.isVanilla = true;
         loadParamaters();
         gameWindow.setSize(1280, 720);
         game.setSize(1280, 720);

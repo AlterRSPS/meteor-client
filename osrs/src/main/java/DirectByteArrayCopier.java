@@ -4,34 +4,77 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("mp")
+@ObfuscatedName("mt")
 @Implements("DirectByteArrayCopier")
 public class DirectByteArrayCopier extends AbstractByteArrayCopier {
-    @ObfuscatedName("aq")
-    static int gameCyclesToDo;
-    @ObfuscatedName("af")
-    ByteBuffer directBuffer;
+	@ObfuscatedName("at")
+	@Export("directBuffer")
+	ByteBuffer directBuffer;
 
-    @ObfuscatedName("ac")
-    @ObfuscatedSignature(
-            descriptor = "(I)[B",
-            garbageValue = "-302524425"
-    )
-    byte[] get() {
-      byte[] var1 = new byte[this.directBuffer.capacity()];
-      this.directBuffer.position(0);
-      this.directBuffer.get(var1);
-      return var1;
-   }
+	DirectByteArrayCopier() {
+		super();
+	}
 
-    @ObfuscatedName("au")
-    @ObfuscatedSignature(
-            descriptor = "([BI)V",
-            garbageValue = "1503790515"
-    )
-    void set(byte[] var1) {
-      this.directBuffer = ByteBuffer.allocateDirect(var1.length);
-      this.directBuffer.position(0);
-      this.directBuffer.put(var1);
-   }
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(I)[B",
+		garbageValue = "-2143916315"
+	)
+	@Export("get")
+	byte[] get() {
+		byte[] var1 = new byte[this.directBuffer.capacity()];
+		this.directBuffer.position(0);
+		this.directBuffer.get(var1);
+		return var1;
+	}
+
+	@ObfuscatedName("ax")
+	@ObfuscatedSignature(
+		descriptor = "([BI)V",
+		garbageValue = "-752004447"
+	)
+	@Export("set")
+	void set(byte[] var1) {
+		this.directBuffer = ByteBuffer.allocateDirect(var1.length);
+		this.directBuffer.position(0);
+		this.directBuffer.put(var1);
+	}
+
+	@ObfuscatedName("js")
+	@ObfuscatedSignature(
+		descriptor = "(Ldv;B)V",
+		garbageValue = "-55"
+	)
+	static final void method1862(PendingSpawn var0) {
+		long var1 = 0L;
+		int var3 = -1;
+		int var4 = 0;
+		int var5 = 0;
+		if (var0.type == 0) {
+			var1 = class36.scene.getBoundaryObjectTag(var0.plane, var0.field_3, var0.field_4);
+		}
+
+		if (var0.type == 1) {
+			var1 = class36.scene.getWallDecorationTag(var0.plane, var0.field_3, var0.field_4);
+		}
+
+		if (var0.type == 2) {
+			var1 = class36.scene.getGameObjectTag(var0.plane, var0.field_3, var0.field_4);
+		}
+
+		if (var0.type == 3) {
+			var1 = class36.scene.getFloorDecorationTag(var0.plane, var0.field_3, var0.field_4);
+		}
+
+		if (var1 != 0L) {
+			int var6 = class36.scene.getObjectFlags(var0.plane, var0.field_3, var0.field_4, var1);
+			var3 = class215.Entity_unpackID(var1);
+			var4 = var6 & 31;
+			var5 = var6 >> 6 & 3;
+		}
+
+		var0.objectId = var3;
+		var0.field924 = var4;
+		var0.field933 = var5;
+	}
 }

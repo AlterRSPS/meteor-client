@@ -59,7 +59,7 @@ import net.runelite.deob.deobfuscators.transformers.ReflectionTransformer;
 import net.runelite.deob.util.JarUtil;
 public class Deob
 {
-	private static final Logger logger = new Logger("deob");
+	private static final Logger logger = new Logger("Deob");
 
 	public static final int OBFUSCATED_NAME_MAX_LEN = 3;
 	private static final boolean CHECK_EXEC = false;
@@ -70,7 +70,7 @@ public class Deob
 
 		Stopwatch stopwatch = Stopwatch.createStarted();
 
-		ClassGroup group = JarUtil.load(new File("./deobfuscator/star-213.jar"), true);
+		ClassGroup group = JarUtil.load(new File("./deobfuscator/star-214.jar"), true);
 
 		// remove except RuntimeException
 		run(group, new RuntimeExceptions());
@@ -130,7 +130,7 @@ public class Deob
 		//new MaxMemoryTransformer().transform(group);
 		//new RuneliteBufferTransformer().transform(group);
 
-		JarUtil.save(group, new File("./deobfuscator/deob-212.jar"));
+		JarUtil.save(group, new File("./deobfuscator/Deobed-214.jar"));
 
 		stopwatch.stop();
 		logger.info("Done in {}", stopwatch);

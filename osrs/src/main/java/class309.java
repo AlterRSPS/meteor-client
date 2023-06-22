@@ -1,50 +1,52 @@
+import java.util.PriorityQueue;
+import java.util.concurrent.Callable;
+import java.util.concurrent.atomic.AtomicBoolean;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lo")
-public class class309 {
-   @ObfuscatedName("af")
-   public int field2818;
-   @ObfuscatedName("an")
-   public int field2816;
-   @ObfuscatedName("aw")
-   public int field2817;
+@ObfuscatedName("le")
+final class class309 implements Callable {
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Lfs;"
+	)
+	static ClanSettings field2795;
+	@ObfuscatedName("bj")
+	@ObfuscatedSignature(
+		descriptor = "Lnq;"
+	)
+	public static AbstractArchive field2794;
+	// $FF: synthetic field
+	final PriorityQueue val$waves;
+	// $FF: synthetic field
+	final AtomicBoolean val$cancelled;
 
-    @ObfuscatedName("an")
-    @ObfuscatedSignature(
-            descriptor = "([Ljava/lang/String;[SIII)V",
-            garbageValue = "1826563573"
-    )
-    static void sortItemsByName(String[] var0, short[] var1, int var2, int var3) {
-      if (var2 < var3) {
-         int var4 = (var3 + var2) / 2;
-         int var5 = var2;
-         String var6 = var0[var4];
-         var0[var4] = var0[var3];
-         var0[var3] = var6;
-         short var7 = var1[var4];
-         var1[var4] = var1[var3];
-         var1[var3] = var7;
+	class309(PriorityQueue var1, AtomicBoolean var2) {
+		super();
+		this.val$waves = var1;
+		this.val$cancelled = var2;
+	}
 
-         for(int var8 = var2; var8 < var3; ++var8) {
-            if (var6 == null || var0[var8] != null && var0[var8].compareTo(var6) < (var8 & 1)) {
-               String var9 = var0[var8];
-               var0[var8] = var0[var5];
-               var0[var5] = var9;
-               short var10 = var1[var8];
-               var1[var8] = var1[var5];
-               var1[var5++] = var10;
-            }
-         }
+	public Object call() {
+		while (!this.val$waves.isEmpty() && !this.val$cancelled.get()) {
+			((class310)this.val$waves.peek()).field2797.method281();
+			this.val$waves.remove();
+		}
 
-         var0[var3] = var0[var5];
-         var0[var5] = var6;
-         var1[var3] = var1[var5];
-         var1[var5] = var7;
-         sortItemsByName(var0, var1, var2, var5 - 1);
-         sortItemsByName(var0, var1, var5 + 1, var3);
-      }
+		return null;
+	}
 
-   }
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(IZIZB)V",
+		garbageValue = "1"
+	)
+	@Export("sortWorldList")
+	static void sortWorldList(int var0, boolean var1, int var2, boolean var3) {
+		if (World.World_worlds != null) {
+			ViewportMouse.doWorldSorting(0, World.World_worlds.length - 1, var0, var1, var2, var3);
+		}
+
+	}
 }

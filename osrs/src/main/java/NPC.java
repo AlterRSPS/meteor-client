@@ -3,380 +3,412 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("df")
+@ObfuscatedName("de")
 @Implements("NPC")
 public final class NPC extends Actor {
-   @ObfuscatedName("al")
-   static int field1050 = 1;
-   @ObfuscatedName("aa")
-   static int field1047 = 1;
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "Lhs;"
-    )
-    NPCComposition definition;
-    @ObfuscatedName("aw")
-    String nameChange = "";
-   @ObfuscatedName("au")
-   int field1045 = 31;
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "Lsx;"
-   )
-   class489 field1052;
-   @ObfuscatedName("aq")
-   @ObfuscatedSignature(
-      descriptor = "Lhv;"
-   )
-   NewShit field1048;
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "Lhv;"
-   )
-   NewShit field1051;
+	@ObfuscatedName("ak")
+	static int field1057;
+	@ObfuscatedName("af")
+	static int field1056;
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Ltj;"
+	)
+	static IndexedSprite field1058;
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Lhd;"
+	)
+	@Export("definition")
+	NPCComposition definition;
+	@ObfuscatedName("av")
+	@Export("nameChange")
+	String nameChange;
+	@ObfuscatedName("ax")
+	int field1062;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Lte;"
+	)
+	class501 field1064;
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "Lhs;"
+	)
+	NewShit field1060;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lhs;"
+	)
+	NewShit field1061;
 
-   @ObfuscatedName("af")
-   @ObfuscatedSignature(
-      descriptor = "(Ljava/lang/String;I)V",
-      garbageValue = "-1586819780"
-   )
-   void method592(String var1) {
-      this.nameChange = var1 == null ? "" : var1;
-   }
+	static {
+		field1057 = 1;
+		field1056 = 1;
+	}
 
-    @ObfuscatedName("an")
-    @ObfuscatedSignature(
-            descriptor = "(B)Lit;",
-            garbageValue = "-112"
-    )
-    protected final Model getModel() {
-      if (this.definition == null) {
-         return null;
-      } else {
-         SequenceDefinition var1 = super.sequence != -1 && super.sequenceDelay == 0 ? ItemContainer.SequenceDefinition_get(super.sequence) : null;
-         SequenceDefinition var2 = super.movementSequence == -1 || super.movementSequence == super.idleSequence && var1 != null ? null : ItemContainer.SequenceDefinition_get(super.movementSequence);
-         Model var3 = null;
-         if (this.field1048 != null && this.field1048.field1558) {
-            var3 = MusicPatchNode.localPlayer.appearance.getModel(var1, super.sequenceFrame, var2, super.movementFrame);
-         } else {
-            var3 = this.definition.method1021(var1, super.sequenceFrame, var2, super.movementFrame, this.field1048);
-         }
+	NPC() {
+		super();
+		this.nameChange = "";
+		this.field1062 = 31;
+	}
 
-         if (var3 == null) {
-            return null;
-         } else {
-            var3.calculateBoundsCylinder();
-            super.defaultHeight = var3.height;
-            int var4 = var3.indicesCount;
-            var3 = this.method530(var3);
-            if (this.definition.size == 1) {
-               var3.isSingleTile = true;
-            }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;I)V",
+		garbageValue = "-1715187311"
+	)
+	void method559(String var1) {
+		this.nameChange = var1 == null ? "" : var1;
+	}
 
-            if (super.recolourAmount != 0 && Client.cycle >= super.recolourStartCycle && Client.cycle < super.recolourEndCycle) {
-               var3.overrideHue = super.recolourHue;
-               var3.overrideSaturation = super.recolourSaturation;
-               var3.overrideLuminance = super.recolourLuminance;
-               var3.overrideAmount = super.recolourAmount;
-               var3.field2196 = (short)var4;
-            } else {
-               var3.overrideAmount = 0;
-            }
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(I)Ljd;",
+		garbageValue = "-1953039490"
+	)
+	@Export("getModel")
+	protected final Model getModel() {
+		if (this.definition == null) {
+			return null;
+		} else {
+			SequenceDefinition var1 = super.sequence != -1 && super.sequenceDelay == 0 ? WorldMapLabelSize.SequenceDefinition_get(super.sequence) : null;
+			SequenceDefinition var2 = super.movementSequence != -1 && (super.idleSequence * 794059635 != super.movementSequence || var1 == null) ? WorldMapLabelSize.SequenceDefinition_get(super.movementSequence) : null;
+			Model var3 = null;
+			if (this.field1060 != null && this.field1060.field1554) {
+				var3 = Projectile.localPlayer.appearance.getModel(var1, super.sequenceFrame, var2, super.movementFrame);
+			} else {
+				var3 = this.definition.method971(var1, super.sequenceFrame, var2, super.movementFrame, this.field1060);
+			}
 
-            return var3;
-         }
-      }
-   }
+			if (var3 == null) {
+				return null;
+			} else {
+				var3.calculateBoundsCylinder();
+				super.defaultHeight = var3.height;
+				int var4 = var3.indicesCount;
+				var3 = this.method501(var3);
+				if (this.definition.size == 1) {
+					var3.isSingleTile = true;
+				}
 
-   @ObfuscatedName("aw")
-   @ObfuscatedSignature(
-      descriptor = "(II)V",
-      garbageValue = "-1826007749"
-   )
-   void method607(int var1) {
-      this.field1045 = var1;
-   }
+				if (super.recolourAmount != 0 && Client.cycle >= super.recolourStartCycle && Client.cycle < super.recolourEndCycle) {
+					var3.overrideHue = super.recolourHue;
+					var3.overrideSaturation = super.recolourSaturation;
+					var3.overrideLuminance = super.recolourLuminance;
+					var3.overrideAmount = super.recolourAmount;
+					var3.field2223 = (short)var4;
+				} else {
+					var3.overrideAmount = 0;
+				}
 
-   @ObfuscatedName("ac")
-   @ObfuscatedSignature(
-      descriptor = "(II)Z",
-      garbageValue = "1164667978"
-   )
-   boolean method604(int var1) {
-      if (var1 >= 0 && var1 <= 4) {
-         return (this.field1045 & 1 << var1) != 0;
-      } else {
-         return true;
-      }
-   }
+				return var3;
+			}
+		}
+	}
 
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "(I)Ljava/lang/String;",
-      garbageValue = "-1379499313"
-   )
-   final String method605() {
-      if (!this.nameChange.isEmpty()) {
-         return this.nameChange;
-      } else {
-         NPCComposition var1 = this.definition;
-         if (var1.transforms != null) {
-            var1 = var1.transform();
-            if (var1 == null) {
-               var1 = this.definition;
-            }
-         }
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(IB)V",
+		garbageValue = "-27"
+	)
+	void method560(int var1) {
+		this.field1062 = var1;
+	}
 
-         return var1.name;
-      }
-   }
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(II)Z",
+		garbageValue = "1165032246"
+	)
+	boolean method561(int var1) {
+		if (var1 >= 0 && var1 <= 4) {
+			return (this.field1062 & 1 << var1) != 0;
+		} else {
+			return true;
+		}
+	}
 
-    @ObfuscatedName("aa")
-    @ObfuscatedSignature(
-            descriptor = "(ILiu;B)V",
-            garbageValue = "110"
-    )
-    final void move(int var1, MoveSpeed var2) {
-      int var3 = super.pathX[0];
-      int var4 = super.pathY[0];
-      if (var1 == 0) {
-         --var3;
-         ++var4;
-      }
+	@ObfuscatedName("ax")
+	@ObfuscatedSignature(
+		descriptor = "(B)Ljava/lang/String;",
+		garbageValue = "73"
+	)
+	final String method562() {
+		if (!this.nameChange.isEmpty()) {
+			return this.nameChange;
+		} else {
+			NPCComposition var1 = this.definition;
+			if (var1.transforms != null) {
+				var1 = var1.transform();
+				if (var1 == null) {
+					var1 = this.definition;
+				}
+			}
 
-      if (var1 == 1) {
-         ++var4;
-      }
+			return var1.name;
+		}
+	}
 
-      if (var1 == 2) {
-         ++var3;
-         ++var4;
-      }
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(ILie;I)V",
+		garbageValue = "-1245339497"
+	)
+	@Export("move")
+	final void move(int var1, MoveSpeed var2) {
+		int var3 = super.pathX[0];
+		int var4 = super.pathY[0];
+		if (var1 == 0) {
+			--var3;
+			++var4;
+		}
 
-      if (var1 == 3) {
-         --var3;
-      }
+		if (var1 == 1) {
+			++var4;
+		}
 
-      if (var1 == 4) {
-         ++var3;
-      }
+		if (var1 == 2) {
+			++var3;
+			++var4;
+		}
 
-      if (var1 == 5) {
-         --var3;
-         --var4;
-      }
+		if (var1 == 3) {
+			--var3;
+		}
 
-      if (var1 == 6) {
-         --var4;
-      }
+		if (var1 == 4) {
+			++var3;
+		}
 
-      if (var1 == 7) {
-         ++var3;
-         --var4;
-      }
+		if (var1 == 5) {
+			--var3;
+			--var4;
+		}
 
-      if (super.sequence != -1 && ItemContainer.SequenceDefinition_get(super.sequence).priority == 1) {
-         super.sequence = -1;
-      }
+		if (var1 == 6) {
+			--var4;
+		}
 
-      if (super.pathLength < 9) {
-         ++super.pathLength;
-      }
+		if (var1 == 7) {
+			++var3;
+			--var4;
+		}
 
-      for(int var5 = super.pathLength; var5 > 0; --var5) {
-         super.pathX[var5] = super.pathX[var5 - 1];
-         super.pathY[var5] = super.pathY[var5 - 1];
-         super.pathTraversed[var5] = super.pathTraversed[var5 - 1];
-      }
+		if (super.sequence != -1 && WorldMapLabelSize.SequenceDefinition_get(super.sequence).priority == 1) {
+			super.sequence = -1;
+		}
 
-      super.pathX[0] = var3;
-      super.pathY[0] = var4;
-      super.pathTraversed[0] = var2;
-   }
+		if (super.pathLength < 9) {
+			++super.pathLength;
+		}
 
-   @ObfuscatedName("ay")
-   @ObfuscatedSignature(
-      descriptor = "(IIZI)V",
-      garbageValue = "-208577848"
-   )
-   final void method594(int var1, int var2, boolean var3) {
-      if (super.sequence != -1 && ItemContainer.SequenceDefinition_get(super.sequence).priority == 1) {
-         super.sequence = -1;
-      }
+		for (int var5 = super.pathLength; var5 > 0; --var5) {
+			super.pathX[var5] = super.pathX[var5 - 1];
+			super.pathY[var5] = super.pathY[var5 - 1];
+			super.pathTraversed[var5] = super.pathTraversed[var5 - 1];
+		}
 
-      if (!var3) {
-         int var4 = var1 - super.pathX[0];
-         int var5 = var2 - super.pathY[0];
-         if (var4 >= -8 && var4 <= 8 && var5 >= -8 && var5 <= 8) {
-            if (super.pathLength < 9) {
-               ++super.pathLength;
-            }
+		super.pathX[0] = var3;
+		super.pathY[0] = var4;
+		super.pathTraversed[0] = var2;
+	}
 
-            for(int var6 = super.pathLength; var6 > 0; --var6) {
-               super.pathX[var6] = super.pathX[var6 - 1];
-               super.pathY[var6] = super.pathY[var6 - 1];
-               super.pathTraversed[var6] = super.pathTraversed[var6 - 1];
-            }
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "(IIZI)V",
+		garbageValue = "-977903962"
+	)
+	final void method564(int var1, int var2, boolean var3) {
+		if (super.sequence != -1 && WorldMapLabelSize.SequenceDefinition_get(super.sequence).priority == 1) {
+			super.sequence = -1;
+		}
 
-            super.pathX[0] = var1;
-            super.pathY[0] = var2;
-            super.pathTraversed[0] = MoveSpeed.WALK;
-            return;
-         }
-      }
+		if (!var3) {
+			int var4 = var1 - super.pathX[0];
+			int var5 = var2 - super.pathY[0];
+			if (var4 >= -8 && var4 <= 8 && var5 >= -8 && var5 <= 8) {
+				if (super.pathLength < 9) {
+					++super.pathLength;
+				}
 
-      super.pathLength = 0;
-      super.field1006 = 0;
-      super.field1005 = 0;
-      super.pathX[0] = var1;
-      super.pathY[0] = var2;
-      super.x = super.field936 * 64 + super.pathX[0] * 128;
-      super.y = super.field936 * 64 + super.pathY[0] * 128;
-   }
+				for (int var6 = super.pathLength; var6 > 0; --var6) {
+					super.pathX[var6] = super.pathX[var6 - 1];
+					super.pathY[var6] = super.pathY[var6 - 1];
+					super.pathTraversed[var6] = super.pathTraversed[var6 - 1];
+				}
 
-   @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      descriptor = "(B)[I",
-      garbageValue = "14"
-   )
-   int[] method596() {
-      return this.field1052 != null ? this.field1052.method2546() : this.definition.method1029();
-   }
+				super.pathX[0] = var1;
+				super.pathY[0] = var2;
+				super.pathTraversed[0] = MoveSpeed.WALK;
+				return;
+			}
+		}
 
-   @ObfuscatedName("ax")
-   @ObfuscatedSignature(
-      descriptor = "(I)[S",
-      garbageValue = "438914513"
-   )
-   short[] method602() {
-      return this.field1052 != null ? this.field1052.method2544() : this.definition.method1031();
-   }
+		super.pathLength = 0;
+		super.field1002 = 0;
+		super.field1003 = 0;
+		super.pathX[0] = var1;
+		super.pathY[0] = var2;
+		super.field_27 = super.field950 * 64 + super.pathX[0] * 128;
+		super.field_28 = super.field950 * 64 + super.pathY[0] * 128;
+	}
 
-   @ObfuscatedName("ai")
-   @ObfuscatedSignature(
-      descriptor = "(IISI)V",
-      garbageValue = "2033131793"
-   )
-   void method597(int var1, int var2, short var3) {
-      if (this.field1052 == null) {
-         this.field1052 = new class489(this.definition);
-      }
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(S)[I",
+		garbageValue = "1212"
+	)
+	int[] method567() {
+		return this.field1064 != null ? this.field1064.method2558() : this.definition.method979();
+	}
 
-      this.field1052.method2545(var1, var2, var3);
-   }
+	@ObfuscatedName("aa")
+	@ObfuscatedSignature(
+		descriptor = "(I)[S",
+		garbageValue = "-1461252941"
+	)
+	short[] method568() {
+		return this.field1064 != null ? this.field1064.method2559() : this.definition.method981();
+	}
 
-   @ObfuscatedName("ag")
-   @ObfuscatedSignature(
-      descriptor = "([I[SI)V",
-      garbageValue = "1712497596"
-   )
-   void method603(int[] var1, short[] var2) {
-      if (this.field1052 == null) {
-         this.field1052 = new class489(this.definition);
-      }
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(IISB)V",
+		garbageValue = "20"
+	)
+	void method569(int var1, int var2, short var3) {
+		if (this.field1064 == null) {
+			this.field1064 = new class501(this.definition);
+		}
 
-      this.field1052.method2547(var1, var2);
-   }
+		this.field1064.method2560(var1, var2, var3);
+	}
 
-   @ObfuscatedName("ah")
-   @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "47"
-   )
-   void method606() {
-      this.field1052 = null;
-   }
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "([I[SB)V",
+		garbageValue = "-80"
+	)
+	void method570(int[] var1, short[] var2) {
+		if (this.field1064 == null) {
+			this.field1064 = new class501(this.definition);
+		}
 
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "(Lhv;I)V",
-      garbageValue = "-1457608941"
-   )
-   void method598(NewShit var1) {
-      this.field1051 = var1;
-   }
+		this.field1064.method2561(var1, var2);
+	}
 
-   @ObfuscatedName("ar")
-   @ObfuscatedSignature(
-      descriptor = "(I)Lhv;",
-      garbageValue = "-767962512"
-   )
-   NewShit method599() {
-      return this.field1051;
-   }
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-157831765"
+	)
+	void method571() {
+		this.field1064 = null;
+	}
 
-   @ObfuscatedName("am")
-   @ObfuscatedSignature(
-      descriptor = "(Lhv;I)V",
-      garbageValue = "1428478753"
-   )
-   void method600(NewShit var1) {
-      this.field1048 = var1;
-   }
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(Lhs;I)V",
+		garbageValue = "-1965176620"
+	)
+	void method572(NewShit var1) {
+		this.field1061 = var1;
+	}
 
-    @ObfuscatedName("as")
-    @ObfuscatedSignature(
-            descriptor = "(I)Z",
-            garbageValue = "1666539507"
-    )
-    final boolean isVisible() {
-      return this.definition != null;
-   }
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "(I)Lhs;",
+		garbageValue = "-1700618787"
+	)
+	NewShit method573() {
+		return this.field1061;
+	}
 
-   @ObfuscatedName("aj")
-   @ObfuscatedSignature(
-      descriptor = "(S)V",
-      garbageValue = "17996"
-   )
-   void method608() {
-      this.field1051 = null;
-   }
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "(Lhs;I)V",
+		garbageValue = "933852691"
+	)
+	void method574(NewShit var1) {
+		this.field1060 = var1;
+	}
 
-   @ObfuscatedName("ak")
-   @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "-112"
-   )
-   void method601() {
-      this.field1048 = null;
-   }
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "(B)Z",
+		garbageValue = "11"
+	)
+	@Export("isVisible")
+	final boolean isVisible() {
+		return this.definition != null;
+	}
 
-   @ObfuscatedName("af")
-   @ObfuscatedSignature(
-      descriptor = "(Lnm;B)V",
-      garbageValue = "-54"
-   )
-   public static void method610(AbstractArchive var0) {
-      InvDefinition.InvDefinition_archive = var0;
-   }
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-1679673754"
+	)
+	void method575() {
+		this.field1061 = null;
+	}
 
-   @ObfuscatedName("au")
-   @ObfuscatedSignature(
-      descriptor = "(II)F",
-      garbageValue = "1228620083"
-   )
-   static final float method609(int var0) {
-      float var1 = 10075.0F - (float)var0;
-      return (var1 * 1.0075567F - 75.56675F) / var1;
-   }
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "91"
+	)
+	void method576() {
+		this.field1060 = null;
+	}
 
-   @ObfuscatedName("bz")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "599275396"
-   )
-   protected static final void method611() {
-      class399.clock.mark();
+	@ObfuscatedName("cq")
+	@ObfuscatedSignature(
+		descriptor = "([BI)[B",
+		garbageValue = "469671388"
+	)
+	@Export("decompressBytes")
+	static final byte[] decompressBytes(byte[] var0) {
+		Buffer var1 = new Buffer(var0);
+		int var2 = var1.readUnsignedByte();
+		int var3 = var1.readInt();
+		if (var3 >= 0 && (AbstractArchive.maximumContainerSize == 0 || var3 <= AbstractArchive.maximumContainerSize)) {
+			if (var2 == 0) {
+				byte[] var4 = new byte[var3];
+				var1.readBytes(var4, 0, var3);
+				return var4;
+			} else {
+				int var6 = var1.readInt();
+				if (var6 < 0 || AbstractArchive.maximumContainerSize != 0 && var6 > AbstractArchive.maximumContainerSize) {
+					throw new RuntimeException();
+				} else {
+					byte[] var5 = new byte[var6];
+					if (var2 == 1) {
+						BZip2Decompressor.BZip2Decompressor_decompress(var5, var6, var0, var3, 9);
+					} else {
+						AbstractArchive.gzipDecompressor.decompress(var1, var5);
+					}
 
-      int var0;
-      for(var0 = 0; var0 < 32; ++var0) {
-         GameEngine.graphicsTickTimes[var0] = 0L;
-      }
+					return var5;
+				}
+			}
+		} else {
+			throw new RuntimeException();
+		}
+	}
 
-      for(var0 = 0; var0 < 32; ++var0) {
-         GameEngine.clientTickTimes[var0] = 0L;
-      }
-
-      DirectByteArrayCopier.gameCyclesToDo = 0;
-   }
+	@ObfuscatedName("mz")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;I)V",
+		garbageValue = "2119265268"
+	)
+	@Export("clanKickUser")
+	static final void clanKickUser(String var0) {
+		if (class406.friendsChat != null) {
+			PacketBufferNode var1 = ObjectComposition.getPacketBufferNode(ClientPacket.field2502, Client.packetWriter.isaacCipher);
+			var1.packetBuffer.writeByte(Widget.stringCp1252NullTerminatedByteSize(var0));
+			var1.packetBuffer.writeStringCp1252NullTerminated(var0);
+			Client.packetWriter.addNode(var1);
+		}
+	}
 }

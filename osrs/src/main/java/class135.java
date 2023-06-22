@@ -1,96 +1,96 @@
+import java.util.concurrent.Callable;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fp")
-public enum class135 implements class356 {
-   @ObfuscatedName("af")
-   @ObfuscatedSignature(
-      descriptor = "Lfp;"
-   )
-   field1302(2, 0),
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "Lfp;"
-   )
-   field1299(1, 1),
-   @ObfuscatedName("aw")
-   @ObfuscatedSignature(
-      descriptor = "Lfp;"
-   )
-   field1305(0, 2),
-   @ObfuscatedName("ac")
-   @ObfuscatedSignature(
-      descriptor = "Lfp;"
-   )
-   field1301(3, 3),
-   @ObfuscatedName("au")
-   @ObfuscatedSignature(
-      descriptor = "Lfp;"
-   )
-   field1303(4, 4);
+@ObfuscatedName("fe")
+class class135 implements Callable {
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "[Lis;"
+	)
+	public static class215[] field1275;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	@Export("this$0")
+	@ObfuscatedName("this$0")
+	final class136 this$0;
+	// $FF: synthetic field
+	@Export("val$workStart")
+	@ObfuscatedName("val$workStart")
+	final int val$workStart;
+	// $FF: synthetic field
+	@Export("val$workEnd")
+	@ObfuscatedName("val$workEnd")
+	final int val$workEnd;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "[Leg;"
+	)
+	@Export("val$curveLoadJobs")
+	@ObfuscatedName("val$curveLoadJobs")
+	final class128[] val$curveLoadJobs;
 
-   @ObfuscatedName("ab")
-   public final int field1304;
-    @ObfuscatedName("aq")
-    final int id;
+	@ObfuscatedSignature(
+		descriptor = "(Lfz;II[Leg;)V"
+	)
+	class135(class136 var1, int var2, int var3, class128[] var4) {
+		super();
+		this.this$0 = var1;
+		this.val$workStart = var2;
+		this.val$workEnd = var3;
+		this.val$curveLoadJobs = var4;
+	}
 
-   class135(int var3, int var4) {
-      this.field1304 = var3;
-      this.id = var4;
-   }
+	@Export("call")
+	@ObfuscatedName("call")
+	public Object call() {
+		for (int var1 = this.val$workStart; var1 < this.val$workEnd; ++var1) {
+			this.val$curveLoadJobs[var1].call();
+		}
 
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "(I)I",
-            garbageValue = "741942848"
-    )
-    public int rsOrdinal() {
-      return this.id;
-   }
+		return null;
+	}
 
-    @ObfuscatedName("ld")
-    @ObfuscatedSignature(
-            descriptor = "([Lmq;IIIZI)V",
-            garbageValue = "1809081725"
-    )
-    static void resizeInterface(Widget[] var0, int var1, int var2, int var3, boolean var4) {
-      for(int var5 = 0; var5 < var0.length; ++var5) {
-         Widget var6 = var0[var5];
-         if (var6 != null && var6.parentId == var1) {
-            class158.alignWidgetSize(var6, var2, var3, var4);
-            class192.alignWidgetPosition(var6, var2, var3);
-            if (var6.scrollX > var6.scrollWidth - var6.width) {
-               var6.scrollX = var6.scrollWidth - var6.width;
-            }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(I)[Llj;",
+		garbageValue = "1017659250"
+	)
+	public static ZoneOperation[] method715() {
+		return new ZoneOperation[]{ZoneOperation.field2586, ZoneOperation.field2582, ZoneOperation.field2587, ZoneOperation.field2585, ZoneOperation.field2588, ZoneOperation.field2584, ZoneOperation.field2578, ZoneOperation.field2581, ZoneOperation.field2579, ZoneOperation.field2580, ZoneOperation.field2583};
+	}
 
-            if (var6.scrollX < 0) {
-               var6.scrollX = 0;
-            }
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(IIIB)I",
+		garbageValue = "36"
+	)
+	static int method716(int var0, int var1, int var2) {
+		if ((Tiles.Tiles_renderFlags[var0][var1][var2] & 8) != 0) {
+			return 0;
+		} else {
+			return var0 > 0 && (Tiles.Tiles_renderFlags[1][var1][var2] & 2) != 0 ? var0 - 1 : var0;
+		}
+	}
 
-            if (var6.scrollY > var6.scrollHeight - var6.height) {
-               var6.scrollY = var6.scrollHeight - var6.height;
-            }
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "844519050"
+	)
+	static int method717() {
+		return Login.loginIndex;
+	}
 
-            if (var6.scrollY < 0) {
-               var6.scrollY = 0;
-            }
-
-            if (var6.type == 0) {
-               WallDecoration.revalidateWidgetScroll(var0, var6, var4);
-            }
-         }
-      }
-
-   }
-
-   @ObfuscatedName("mi")
-   @ObfuscatedSignature(
-      descriptor = "(IB)V",
-      garbageValue = "0"
-   )
-   static final void method783(int var0) {
-      var0 = Math.min(Math.max(var0, 0), 127);
-      class20.clientPreferences.setAreaSoundEffectsVolume(var0);
-   }
+	@ObfuscatedName("bu")
+	@ObfuscatedSignature(
+		descriptor = "(ILdd;ZB)I",
+		garbageValue = "49"
+	)
+	static int method718(int var0, Script var1, boolean var2) {
+		return 2;
+	}
 }

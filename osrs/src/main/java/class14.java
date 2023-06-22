@@ -1,3 +1,5 @@
+import java.applet.Applet;
+import java.net.URL;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -5,130 +7,179 @@ import java.util.concurrent.TimeUnit;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import netscape.javascript.JSObject;
 
-@ObfuscatedName("ag")
+@ObfuscatedName("ac")
 public class class14 {
-    @ObfuscatedName("iq")
-    @ObfuscatedSignature(
-            descriptor = "Let;"
-    )
-    static UrlRequester urlRequester;
-   @ObfuscatedName("af")
-   final int field44;
-   @ObfuscatedName("an")
-   final String field45;
-   @ObfuscatedName("aw")
-   final ThreadFactory field48;
-   @ObfuscatedName("ac")
-   final ThreadPoolExecutor field47;
+	@ObfuscatedName("sa")
+	@Export("ClanChat_inClanChat")
+	static boolean ClanChat_inClanChat;
+	@ObfuscatedName("at")
+	final int field41;
+	@ObfuscatedName("an")
+	final String field42;
+	@ObfuscatedName("av")
+	final ThreadFactory field43;
+	@ObfuscatedName("as")
+	final ThreadPoolExecutor field44;
 
-   public class14(String var1, int var2, int var3) {
-      this.field45 = var1;
-      this.field44 = var2;
-      this.field48 = new class16(this);
-      this.field47 = this.method51(var3);
-   }
+	public class14(String var1, int var2, int var3) {
+		super();
+		this.field42 = var1;
+		this.field41 = var2;
+		this.field43 = new class16(this);
+		this.field44 = this.method47(var3);
+	}
 
-   @ObfuscatedName("af")
-   @ObfuscatedSignature(
-      descriptor = "(II)Ljava/util/concurrent/ThreadPoolExecutor;",
-      garbageValue = "140913775"
-   )
-   final ThreadPoolExecutor method51(int var1) {
-      return new ThreadPoolExecutor(var1, var1, 0L, TimeUnit.MILLISECONDS, new ArrayBlockingQueue(this.field44), this.field48);
-   }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Ljava/util/concurrent/ThreadPoolExecutor;",
+		garbageValue = "-112"
+	)
+	final ThreadPoolExecutor method47(int var1) {
+		return new ThreadPoolExecutor(var1, var1, 0L, TimeUnit.MILLISECONDS, new ArrayBlockingQueue(this.field41), this.field43);
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(Lay;B)Lam;",
-      garbageValue = "1"
-   )
-   public class18 method52(class10 var1) {
-      if (this.field47.getQueue().remainingCapacity() <= 0) {
-         System.err.println("REST thread pool queue is empty\r\nThread pool size " + this.field47.getCorePoolSize() + " Queue capacity " + this.field44);
-         return new class18("Queue full");
-      } else {
-         class18 var2 = new class18(this.field47.submit(new class19(this, var1)));
-         return var2;
-      }
-   }
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(Lao;S)Laz;",
+		garbageValue = "2477"
+	)
+	public class18 method49(class10 var1) {
+		if (this.field44.getQueue().remainingCapacity() <= 0) {
+			System.err.println("REST thread pool queue is empty\r\nThread pool size " + this.field44.getCorePoolSize() + " Queue capacity " + this.field41);
+			return new class18("Queue full");
+		} else {
+			class18 var2 = new class18(this.field44.submit(new class19(this, var1)));
+			return var2;
+		}
+	}
 
-   @ObfuscatedName("aw")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "537635380"
-   )
-   public final void method54() {
-      try {
-         this.field47.shutdown();
-      } catch (Exception var2) {
-         System.err.println("Error shutting down RestRequestService\r\n" + var2);
-      }
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "144144800"
+	)
+	public final void method50() {
+		try {
+			this.field44.shutdown();
+		} catch (Exception var2) {
+			System.err.println("Error shutting down RestRequestService\r\n" + var2);
+		}
 
-   }
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(Lek;FB)F",
-      garbageValue = "88"
-   )
-   static float method58(class125 var0, float var1) {
-      if (var0 == null) {
-         return 0.0F;
-      } else {
-         float var2 = var1 - var0.field1221;
-         return var0.field1226 + var2 * (var0.field1237 + var2 * (var0.field1223 * var2 + var0.field1224));
-      }
-   }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "-40"
+	)
+	public static void method48() {
+		class36.reflectionChecks = new IterableNodeDeque();
+	}
 
-   @ObfuscatedName("ax")
-   @ObfuscatedSignature(
-      descriptor = "(CIB)Ljava/lang/String;",
-      garbageValue = "0"
-   )
-   static String method57(char var0, int var1) {
-      char[] var2 = new char[var1];
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(IB)I",
+		garbageValue = "-25"
+	)
+	public static int method51(int var0) {
+		long var2 = ViewportMouse.ViewportMouse_entityTags[var0];
+		int var1 = (int)(var2 >>> 0 & 127L);
+		return var1;
+	}
 
-      for(int var3 = 0; var3 < var1; ++var3) {
-         var2[var3] = var0;
-      }
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;ILjava/lang/String;I)Z",
+		garbageValue = "-407265950"
+	)
+	static boolean method52(String var0, int var1, String var2) {
+		if (var1 == 0) {
+			try {
+				if (!class31.field85.startsWith("win")) {
+					throw new Exception();
+				} else if (!var0.startsWith("http://") && !var0.startsWith("https://")) {
+					throw new Exception();
+				} else {
+					String var13 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?&=,.%+-_#:/*";
 
-      return new String(var2);
-   }
+					for (int var4 = 0; var4 < var0.length(); ++var4) {
+						if (var13.indexOf(var0.charAt(var4)) == -1) {
+							throw new Exception();
+						}
+					}
 
-   @ObfuscatedName("ag")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-729068470"
-   )
-   public static void method56() {
-      ObjectComposition.ObjectDefinition_cached.clear();
-      ObjectComposition.ObjectDefinition_cachedModelData.clear();
-      ObjectComposition.ObjectDefinition_cachedEntities.clear();
-      ObjectComposition.ObjectDefinition_cachedModels.clear();
-   }
+					Runtime.getRuntime().exec("cmd /c start \"j\" \"" + var0 + "\"");
+					return true;
+				}
+			} catch (Throwable var8) {
+				return false;
+			}
+		} else if (var1 == 1) {
+			try {
+				Applet var7 = class31.field84;
+				Object[] var5 = new Object[]{(new URL(class31.field84.getCodeBase(), var0)).toString()};
+				Object var3 = JSObject.getWindow(var7).call(var2, var5);
+				return var3 != null;
+			} catch (Throwable var9) {
+				return false;
+			}
+		} else if (var1 == 2) {
+			try {
+				class31.field84.getAppletContext().showDocument(new URL(class31.field84.getCodeBase(), var0), "_blank");
+				return true;
+			} catch (Exception var10) {
+				return false;
+			}
+		} else if (var1 == 3) {
+			try {
+				class26.method93(class31.field84, "loggedout");
+			} catch (Throwable var12) {
+			}
 
-   @ObfuscatedName("av")
-   @ObfuscatedSignature(
-      descriptor = "(II)V",
-      garbageValue = "2038496653"
-   )
-   static void method55(int var0) {
-      class129.method763(14);
-      Login.field738 = var0;
-   }
+			try {
+				class31.field84.getAppletContext().showDocument(new URL(class31.field84.getCodeBase(), var0), "_top");
+				return true;
+			} catch (Exception var11) {
+				return false;
+			}
+		} else {
+			throw new IllegalArgumentException();
+		}
+	}
 
-   @ObfuscatedName("hb")
-   @ObfuscatedSignature(
-      descriptor = "(ZI)V",
-      garbageValue = "-1683073993"
-   )
-   static final void method53(boolean var0) {
-      if (var0) {
-         Client.field394 = Login.field751 ? class135.field1299 : class135.field1301;
-      } else {
-         Client.field394 = class20.clientPreferences.method563(Login.Login_username) ? class135.field1302 : class135.field1305;
-      }
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(Lcc;I)V",
+		garbageValue = "-2085858081"
+	)
+	@Export("changeWorld")
+	static void changeWorld(World var0) {
+		if (var0.isMembersOnly() != Client.isMembersWorld) {
+			Client.isMembersWorld = var0.isMembersOnly();
+			class211.method1111(var0.isMembersOnly());
+		}
 
-   }
+		if (var0.properties != Client.worldProperties) {
+			Archive var1 = class180.archive8;
+			int var2 = var0.properties;
+			if ((var2 & 536870912) != 0) {
+				class13.logoSprite = WorldMapRectangle.SpriteBuffer_getIndexedSpriteByName(var1, "logo_deadman_mode", "");
+			} else if ((var2 & 1073741824) != 0) {
+				class13.logoSprite = WorldMapRectangle.SpriteBuffer_getIndexedSpriteByName(var1, "logo_seasonal_mode", "");
+			} else if ((var2 & 256) != 0) {
+				class13.logoSprite = WorldMapRectangle.SpriteBuffer_getIndexedSpriteByName(var1, "logo_speedrunning", "");
+			} else {
+				class13.logoSprite = WorldMapRectangle.SpriteBuffer_getIndexedSpriteByName(var1, "logo", "");
+			}
+		}
+
+		class17.worldHost = var0.host;
+		Client.worldId = var0.field_72;
+		Client.worldProperties = var0.properties;
+		PcmPlayer.worldPort = Client.gameBuild == 0 ? 43594 : var0.field_72 + 40000;
+		SecureRandomFuture.js5Port = Client.gameBuild == 0 ? 443 : var0.field_72 + 50000;
+		UserComparator8.currentPort = PcmPlayer.worldPort;
+	}
 }

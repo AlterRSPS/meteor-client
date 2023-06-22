@@ -2,68 +2,70 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dy")
-final class class101 implements class308 {
-   @ObfuscatedName("qw")
-   static int field1082;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-           descriptor = "Lmq;"
-   )
-   @ObfuscatedName("val$cc")
-   final Widget val$cc;
+@ObfuscatedName("dc")
+public class class101 {
+	@ObfuscatedName("jw")
+	@Export("baseY")
+	static int baseY;
+	@ObfuscatedName("at")
+	int field1076;
+	@ObfuscatedName("an")
+	int field1074;
+	@ObfuscatedName("av")
+	int field1077;
+	@ObfuscatedName("as")
+	int field1075;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lmq;)V"
-   )
-   class101(Widget var1) {
-      this.val$cc = var1;
-   }
+	class101(int var1, int var2, int var3, int var4) {
+		super();
+		this.field1076 = var1;
+		this.field1074 = var2;
+		this.field1077 = var3;
+		this.field1075 = var4;
+	}
 
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "(I)V",
-            garbageValue = "427135973"
-    )
-    public void vmethod5708() {
-      if (this.val$cc != null && this.val$cc.method1818().field2824 != null) {
-         ScriptEvent var1 = new ScriptEvent();
-         var1.method491(this.val$cc);
-         var1.setArgs(this.val$cc.method1818().field2824);
-         GrandExchangeOfferAgeComparator.getScriptEvents().addFirst(var1);
-      }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "-1658985569"
+	)
+	int method583() {
+		return this.field1076;
+	}
 
-   }
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "-9232805"
+	)
+	int method584() {
+		return this.field1074;
+	}
 
-   @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      descriptor = "(II)Ljava/lang/String;",
-      garbageValue = "262535457"
-   )
-   static final String method633(int var0) {
-      if (var0 < 100000) {
-         return "<col=ffff00>" + var0 + "</col>";
-      } else {
-         return var0 < 10000000 ? "<col=ffffff>" + var0 / 1000 + "K" + "</col>" : "<col=00ff80>" + var0 / 1000000 + "M" + "</col>";
-      }
-   }
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "-880543502"
+	)
+	int method585() {
+		return this.field1077;
+	}
 
-   @ObfuscatedName("ai")
-   @ObfuscatedSignature(
-      descriptor = "(IIIB)I",
-      garbageValue = "-9"
-   )
-   static final int method634(int var0, int var1, int var2) {
-      int var3 = var0 / var2;
-      int var4 = var0 & var2 - 1;
-      int var5 = var1 / var2;
-      int var6 = var1 & var2 - 1;
-      int var7 = class383.method2085(var3, var5);
-      int var8 = class383.method2085(var3 + 1, var5);
-      int var9 = class383.method2085(var3, var5 + 1);
-      int var10 = class383.method2085(var3 + 1, var5 + 1);
-      int var11 = JagexCache.method952(var7, var8, var4, var2);
-      int var12 = JagexCache.method952(var9, var10, var4, var2);
-      return JagexCache.method952(var11, var12, var6, var2);
-   }
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "22"
+	)
+	int method586() {
+		return this.field1075;
+	}
+
+	@ObfuscatedName("gf")
+	@ObfuscatedSignature(
+		descriptor = "(II)I",
+		garbageValue = "-1592485699"
+	)
+	static int method587(int var0) {
+		return var0 * 3 + 600;
+	}
 }

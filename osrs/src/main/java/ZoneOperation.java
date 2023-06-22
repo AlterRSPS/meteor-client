@@ -1,120 +1,108 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lm")
+@ObfuscatedName("lj")
 @Implements("ZoneOperation")
 public class ZoneOperation {
-   @ObfuscatedName("af")
-   @ObfuscatedSignature(
-      descriptor = "Llm;"
-   )
-   public static final ZoneOperation field2571 = new ZoneOperation(2);
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "Llm;"
-   )
-   public static final ZoneOperation field2563 = new ZoneOperation(14);
-   @ObfuscatedName("aw")
-   @ObfuscatedSignature(
-      descriptor = "Llm;"
-   )
-   public static final ZoneOperation field2566 = new ZoneOperation(6);
-   @ObfuscatedName("ac")
-   @ObfuscatedSignature(
-      descriptor = "Llm;"
-   )
-   public static final ZoneOperation field2564 = new ZoneOperation(4);
-   @ObfuscatedName("au")
-   @ObfuscatedSignature(
-      descriptor = "Llm;"
-   )
-   public static final ZoneOperation field2565 = new ZoneOperation(16);
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "Llm;"
-   )
-   public static final ZoneOperation field2567 = new ZoneOperation(5);
-   @ObfuscatedName("aq")
-   @ObfuscatedSignature(
-      descriptor = "Llm;"
-   )
-   public static final ZoneOperation field2572 = new ZoneOperation(5);
-   @ObfuscatedName("al")
-   @ObfuscatedSignature(
-      descriptor = "Llm;"
-   )
-   public static final ZoneOperation field2568 = new ZoneOperation(4);
-   @ObfuscatedName("at")
-   @ObfuscatedSignature(
-      descriptor = "Llm;"
-   )
-   public static final ZoneOperation field2569 = new ZoneOperation(7);
-   @ObfuscatedName("aa")
-   @ObfuscatedSignature(
-      descriptor = "Llm;"
-   )
-   public static final ZoneOperation field2570 = new ZoneOperation(14);
-   @ObfuscatedName("ay")
-   @ObfuscatedSignature(
-      descriptor = "Llm;"
-   )
-   public static final ZoneOperation field2562 = new ZoneOperation(11);
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Llj;"
+	)
+	public static final ZoneOperation field2586;
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "Llj;"
+	)
+	public static final ZoneOperation field2582;
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "Llj;"
+	)
+	public static final ZoneOperation field2587;
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "Llj;"
+	)
+	public static final ZoneOperation field2585;
+	@ObfuscatedName("ax")
+	@ObfuscatedSignature(
+		descriptor = "Llj;"
+	)
+	public static final ZoneOperation field2588;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Llj;"
+	)
+	public static final ZoneOperation field2584;
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "Llj;"
+	)
+	public static final ZoneOperation field2578;
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Llj;"
+	)
+	public static final ZoneOperation field2581;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Llj;"
+	)
+	public static final ZoneOperation field2579;
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "Llj;"
+	)
+	public static final ZoneOperation field2580;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Llj;"
+	)
+	public static final ZoneOperation field2583;
 
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "2"
-   )
-   ZoneOperation(int var1) {
-   }
+	static {
+		field2586 = new ZoneOperation(4);
+		field2582 = new ZoneOperation(11);
+		field2587 = new ZoneOperation(5);
+		field2585 = new ZoneOperation(14);
+		field2588 = new ZoneOperation(16);
+		field2584 = new ZoneOperation(4);
+		field2578 = new ZoneOperation(2);
+		field2581 = new ZoneOperation(5);
+		field2579 = new ZoneOperation(7);
+		field2580 = new ZoneOperation(14);
+		field2583 = new ZoneOperation(6);
+	}
 
-   @ObfuscatedName("hk")
-   @ObfuscatedSignature(
-      descriptor = "(Lha;IIII)V",
-      garbageValue = "-1566363123"
-   )
-   static void method1599(SequenceDefinition var0, int var1, int var2, int var3) {
-      if (Client.soundEffectCount < 50 && class20.clientPreferences.getAreaSoundEffectsVolume() != 0) {
-         if (var0.soundEffects != null && var1 < var0.soundEffects.length) {
-            class161.method908(var0.soundEffects[var1], var2, var3);
-         }
-      }
-   }
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "4"
+	)
+	ZoneOperation(int var1) {
+		super();
+	}
 
-   @ObfuscatedName("mv")
-   @ObfuscatedSignature(
-      descriptor = "(IB)V",
-      garbageValue = "-87"
-   )
-   static void method1597(int var0) {
-      Language.tempMenuAction = new MenuAction();
-      Language.tempMenuAction.param0 = Client.menuArguments1[var0];
-      Language.tempMenuAction.param1 = Client.menuArguments2[var0];
-      Language.tempMenuAction.opcode = Client.menuOpcodes[var0];
-      Language.tempMenuAction.identifier = Client.menuIdentifiers[var0];
-      Language.tempMenuAction.itemId = Client.menuItemIds[var0];
-      Language.tempMenuAction.action = Client.menuActions[var0];
-      Language.tempMenuAction.target = Client.menuTargets[var0];
-   }
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(IB)V",
+		garbageValue = "67"
+	)
+	public static void method1607(int var0) {
+		if (var0 != -1) {
+			if (class143.Widget_loadedInterfaces[var0]) {
+				Widget.Widget_archive.clearFilesGroup(var0);
+				if (class16.Widget_interfaceComponents[var0] != null) {
+					for (int var1 = 0; var1 < class16.Widget_interfaceComponents[var0].length; ++var1) {
+						if (class16.Widget_interfaceComponents[var0][var1] != null) {
+							class16.Widget_interfaceComponents[var0][var1] = null;
+						}
+					}
 
-    @ObfuscatedName("mj")
-    @ObfuscatedSignature(
-            descriptor = "(II)V",
-            garbageValue = "1669002823"
-    )
-    static final void Widget_resetModelFrames(int var0) {
-      if (SoundSystem.loadInterface(var0)) {
-         Widget[] var1 = VerticalAlignment.Widget_interfaceComponents[var0];
-
-         for(int var2 = 0; var2 < var1.length; ++var2) {
-            Widget var3 = var1[var2];
-            if (var3 != null) {
-               var3.modelFrame = 0;
-               var3.modelFrameCycle = 0;
-            }
-         }
-
-      }
-   }
+					class16.Widget_interfaceComponents[var0] = null;
+					class143.Widget_loadedInterfaces[var0] = false;
+				}
+			}
+		}
+	}
 }

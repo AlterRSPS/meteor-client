@@ -10,143 +10,126 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import org.bouncycastle.crypto.tls.TlsClientProtocol;
 
-@ObfuscatedName("ax")
+@ObfuscatedName("aj")
 class class12 extends SSLSocket {
-    @ObfuscatedName("an")
-    static boolean clearLoginScreen;
-   @ObfuscatedName("af")
-   Certificate[] field40;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-           descriptor = "Lah;"
-   )
-   @ObfuscatedName("this$0")
-   final class15 this$0;
-   // $FF: synthetic field
-   @ObfuscatedName("val$tlsClientProtocol")
-   final TlsClientProtocol val$tlsClientProtocol;
-   // $FF: synthetic field
-   @ObfuscatedName("val$host")
-   final String val$host;
+	@ObfuscatedName("ka")
+	@ObfuscatedSignature(
+		descriptor = "[Ltm;"
+	)
+	@Export("crossSprites")
+	static SpritePixels[] crossSprites;
+	@ObfuscatedName("at")
+	Certificate[] field35;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lag;"
+	)
+	@Export("this$0")
+	@ObfuscatedName("this$0")
+	final class15 this$0;
+	// $FF: synthetic field
+	@Export("val$tlsClientProtocol")
+	@ObfuscatedName("val$tlsClientProtocol")
+	final TlsClientProtocol val$tlsClientProtocol;
+	// $FF: synthetic field
+	@Export("val$host")
+	@ObfuscatedName("val$host")
+	final String val$host;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lah;Lorg/bouncycastle/crypto/tls/TlsClientProtocol;Ljava/lang/String;)V"
-   )
-   class12(class15 var1, TlsClientProtocol var2, String var3) {
-      this.this$0 = var1;
-      this.val$tlsClientProtocol = var2;
-      this.val$host = var3;
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Lag;Lorg/bouncycastle/crypto/tls/TlsClientProtocol;Ljava/lang/String;)V"
+	)
+	class12(class15 var1, TlsClientProtocol var2, String var3) {
+		super();
+		this.this$0 = var1;
+		this.val$tlsClientProtocol = var2;
+		this.val$host = var3;
+	}
 
-   public InputStream getInputStream() throws IOException {
-      return this.val$tlsClientProtocol.getInputStream();
-   }
+	public InputStream getInputStream() throws IOException {
+		return this.val$tlsClientProtocol.getInputStream();
+	}
 
-    @ObfuscatedName("close")
-    public synchronized void close() throws IOException {
-      this.val$tlsClientProtocol.close();
-   }
+	public OutputStream getOutputStream() throws IOException {
+		return this.val$tlsClientProtocol.getOutputStream();
+	}
 
-   public void addHandshakeCompletedListener(HandshakeCompletedListener var1) {
-   }
+	@Export("close")
+	@ObfuscatedName("close")
+	public synchronized void close() throws IOException {
+		this.val$tlsClientProtocol.close();
+	}
 
-   public String[] getEnabledCipherSuites() {
-      return null;
-   }
+	public void addHandshakeCompletedListener(HandshakeCompletedListener var1) {
+	}
 
-   public String[] getEnabledProtocols() {
-      return null;
-   }
+	public boolean getEnableSessionCreation() {
+		return false;
+	}
 
-   public boolean getNeedClientAuth() {
-      return false;
-   }
+	public String[] getEnabledCipherSuites() {
+		return null;
+	}
 
-   public boolean getUseClientMode() {
-      return false;
-   }
+	public String[] getEnabledProtocols() {
+		return null;
+	}
 
-   public boolean getWantClientAuth() {
-      return false;
-   }
+	public boolean getNeedClientAuth() {
+		return false;
+	}
 
-   public void removeHandshakeCompletedListener(HandshakeCompletedListener var1) {
-   }
+	@Export("getSession")
+	@ObfuscatedName("getSession")
+	public SSLSession getSession() {
+		return new class17(this);
+	}
 
-   public void setEnableSessionCreation(boolean var1) {
-   }
+	public String[] getSupportedProtocols() {
+		return null;
+	}
 
-   public void setEnabledCipherSuites(String[] var1) {
-   }
+	public String[] getSupportedCipherSuites() {
+		return null;
+	}
 
-   public void setEnabledProtocols(String[] var1) {
-   }
+	public boolean getUseClientMode() {
+		return false;
+	}
 
-   public void setNeedClientAuth(boolean var1) {
-   }
+	public boolean getWantClientAuth() {
+		return false;
+	}
 
-    @ObfuscatedName("startHandshake")
-    public void startHandshake() throws IOException {
-      this.val$tlsClientProtocol.connect(new class13(this));
-   }
+	public void removeHandshakeCompletedListener(HandshakeCompletedListener var1) {
+	}
 
-   public void setWantClientAuth(boolean var1) {
-   }
+	public void setEnableSessionCreation(boolean var1) {
+	}
 
-   public boolean getEnableSessionCreation() {
-      return false;
-   }
+	public void setEnabledCipherSuites(String[] var1) {
+	}
 
-   public void setUseClientMode(boolean var1) {
-   }
+	public void setEnabledProtocols(String[] var1) {
+	}
 
-    @ObfuscatedName("getSession")
-    public SSLSession getSession() {
-      return new class17(this);
-   }
+	public void setNeedClientAuth(boolean var1) {
+	}
 
-   public String[] getSupportedCipherSuites() {
-      return null;
-   }
+	public void setUseClientMode(boolean var1) {
+	}
 
-   public OutputStream getOutputStream() throws IOException {
-      return this.val$tlsClientProtocol.getOutputStream();
-   }
+	public void setWantClientAuth(boolean var1) {
+	}
 
-   public String[] getSupportedProtocols() {
-      return null;
-   }
+	@Export("startHandshake")
+	@ObfuscatedName("startHandshake")
+	public void startHandshake() throws IOException {
+		this.val$tlsClientProtocol.connect(new class13(this));
+	}
 
-   @ObfuscatedName("ab")
-   @ObfuscatedSignature(
-      descriptor = "(I)I",
-      garbageValue = "1626941955"
-   )
-   static int getClipMidY() {
-      return Rasterizer3D.clips.field2229;
-   }
-
-    @ObfuscatedName("ci")
-    @ObfuscatedSignature(
-            descriptor = "(IB)V",
-            garbageValue = "120"
-    )
-    static void runWidgetOnLoadListener(int var0) {
-      if (var0 != -1) {
-         if (SoundSystem.loadInterface(var0)) {
-            Widget[] var1 = VerticalAlignment.Widget_interfaceComponents[var0];
-
-            for(int var2 = 0; var2 < var1.length; ++var2) {
-               Widget var3 = var1[var2];
-               if (var3.onLoad != null) {
-                  ScriptEvent var4 = new ScriptEvent();
-                  var4.widget = var3;
-                  var4.args = var3.onLoad;
-                  PlayerType.runScript(var4, 5000000, 0);
-               }
-            }
-
-         }
-      }
-   }
+	@ObfuscatedName("ak")
+	static final void method43(long var0) {
+		ViewportMouse.ViewportMouse_entityTags[++ViewportMouse.ViewportMouse_entityCount - 1] = var0;
+	}
 }

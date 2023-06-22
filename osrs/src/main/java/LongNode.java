@@ -2,13 +2,15 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("rq")
+@ObfuscatedName("rl")
 @Implements("LongNode")
 public class LongNode extends Node {
-    @ObfuscatedName("af")
-    public long longValue;
+	@ObfuscatedName("at")
+	@Export("longValue")
+	public long longValue;
 
-   public LongNode(long var1) {
-      this.longValue = var1;
-   }
+	public LongNode(long var1) {
+		super();
+		this.longValue = var1;
+	}
 }

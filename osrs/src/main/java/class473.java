@@ -1,90 +1,88 @@
-import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("su")
-public class class473 extends class430 implements class275 {
-    @ObfuscatedName("ev")
-    static boolean mouseCam;
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "Lnm;"
-   )
-   final AbstractArchive field4019;
-   @ObfuscatedName("aw")
-   @ObfuscatedSignature(
-      descriptor = "Lke;"
-   )
-   final DemotingHashTable field4018 = new DemotingHashTable(64);
-   @ObfuscatedName("ac")
-   final int field4020;
+@ObfuscatedName("sf")
+public class class473 {
+	@ObfuscatedName("at")
+	public final Object field3987;
+	@ObfuscatedName("an")
+	public final Object field3986;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lmr;ILnx;Lnm;)V"
-   )
-   public class473(StudioGame var1, int var2, Language var3, AbstractArchive var4) {
-      super(var1, var3, var4 != null ? var4.getGroupFileCount(var2) : 0);
-      this.field4019 = var4;
-      this.field4020 = var2;
-   }
+	public class473(Object var1, Object var2) {
+		super();
+		this.field3987 = var1;
+		this.field3986 = var2;
+	}
 
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "(IB)Lqg;",
-            garbageValue = "0"
-    )
-    protected class432 vmethod8207(int var1) {
-      DemotingHashTable var3 = this.field4018;
-      synchronized(this.field4018) {
-         class431 var2 = (class431)this.field4018.get((long)var1);
-         if (var2 == null) {
-            var2 = this.method2420(var1);
-            this.field4018.method1577(var2, (long)var1);
-         }
+	@Export("toString")
+	@ObfuscatedName("toString")
+	public String toString() {
+		return this.field3987 + ", " + this.field3986;
+	}
 
-         return var2;
-      }
-   }
+	@Export("equals")
+	@ObfuscatedName("equals")
+	public boolean equals(Object var1) {
+		if (var1 != null && var1 instanceof class473) {
+			class473 var2 = (class473)var1;
+			if (this.field3987 == null) {
+				if (var2.field3987 != null) {
+					return false;
+				}
+			} else if (!this.field3987.equals(var2.field3987)) {
+				return false;
+			}
 
-   @ObfuscatedName("ar")
-   @ObfuscatedSignature(
-      descriptor = "(II)Lqb;",
-      garbageValue = "-989370023"
-   )
-   class431 method2420(int var1) {
-      byte[] var2 = this.field4019.takeFile(this.field4020, var1);
-      class431 var3 = new class431(var1);
-      if (var2 != null) {
-         var3.method2281(new Buffer(var2));
-      }
+			if (this.field3986 == null) {
+				if (var2.field3986 != null) {
+					return false;
+				}
+			} else if (!this.field3986.equals(var2.field3986)) {
+				return false;
+			}
 
-      return var3;
-   }
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-   @ObfuscatedName("am")
-   @ObfuscatedSignature(
-      descriptor = "(B)V",
-      garbageValue = "-105"
-   )
-   public void method2418() {
-      DemotingHashTable var1 = this.field4018;
-      synchronized(this.field4018) {
-         this.field4018.clear();
-      }
-   }
+	@Export("hashCode")
+	@ObfuscatedName("hashCode")
+	public int hashCode() {
+		int var1 = 0;
+		if (this.field3987 != null) {
+			var1 += this.field3987.hashCode();
+		}
 
-    @ObfuscatedName("iterator")
-    public Iterator iterator() {
-      return new class472(this);
-   }
+		if (this.field3986 != null) {
+			var1 += 31 * this.field3986.hashCode();
+		}
 
-   @ObfuscatedName("au")
-   @ObfuscatedSignature(
-      descriptor = "(B)[Lhd;",
-      garbageValue = "-126"
-   )
-   static HorizontalAlignment[] method2421() {
-      return new HorizontalAlignment[]{HorizontalAlignment.field1547, HorizontalAlignment.field1549, HorizontalAlignment.HorizontalAlignment_centered};
-   }
+		return var1;
+	}
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Ltp;",
+		garbageValue = "0"
+	)
+	@Export("getDbRowType")
+	public static DbRowType getDbRowType(int var0) {
+		DbRowType var1 = (DbRowType)DbRowType.DBRowType_cache.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = DbRowType.field4054.takeFile(38, var0);
+			var1 = new DbRowType();
+			if (var2 != null) {
+				var1.method2463(new Buffer(var2));
+			}
+
+			var1.method2466();
+			DbRowType.DBRowType_cache.put(var1, (long)var0);
+			return var1;
+		}
+	}
 }

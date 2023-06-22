@@ -1,53 +1,125 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fr")
-public class class145 extends class155 {
-   @ObfuscatedName("af")
-   int field1334;
-   @ObfuscatedName("an")
-   byte field1335;
-   @ObfuscatedName("aw")
-   int field1337;
-   @ObfuscatedName("ac")
-   String field1336;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-      descriptor = "Lgr;"
-   )
-   final class156 this$0;
+@ObfuscatedName("fh")
+public class class145 {
+	@ObfuscatedName("at")
+	long field1321;
+	@ObfuscatedName("an")
+	int field1320;
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "Lom;"
+	)
+	IterableNodeDeque field1322;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lgr;)V"
-   )
-   class145(class156 var1) {
-      this.this$0 = var1;
-      this.field1334 = -1;
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Ltz;)V"
+	)
+	public class145(Buffer var1) {
+		super();
+		this.field1320 = -1;
+		this.field1322 = new IterableNodeDeque();
+		this.method762(var1);
+	}
 
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "(Lsg;I)V",
-            garbageValue = "-1949352075"
-    )
-    void vmethod3238(Buffer var1) {
-      this.field1334 = var1.readUnsignedShort();
-      this.field1335 = var1.readByte();
-      this.field1337 = var1.readUnsignedShort();
-      var1.readLong();
-      this.field1336 = var1.readStringCp1252NullTerminated();
-   }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(Ltz;B)V",
+		garbageValue = "-112"
+	)
+	void method762(Buffer var1) {
+		this.field1321 = var1.readLong();
+		this.field1320 = var1.readInt();
 
-    @ObfuscatedName("an")
-    @ObfuscatedSignature(
-            descriptor = "(Lgj;B)V",
-            garbageValue = "-49"
-    )
-    void vmethod3239(ClanChannel var1) {
-      ClanChannelMember var2 = (ClanChannelMember)var1.members.get(this.field1334);
-      var2.rank = this.field1335;
-      var2.world = this.field1337;
-      var2.username = new Username(this.field1336);
-   }
+		for (int var2 = var1.readUnsignedByte(); var2 != 0; var2 = var1.readUnsignedByte()) {
+			Object var3;
+			if (var2 == 3) {
+				var3 = new class164(this);
+			} else if (var2 == 1) {
+				var3 = new class140(this);
+			} else if (var2 == 13) {
+				var3 = new class157(this);
+			} else if (var2 == 4) {
+				var3 = new class149(this);
+			} else if (var2 == 6) {
+				var3 = new class156(this);
+			} else if (var2 == 5) {
+				var3 = new class141(this);
+			} else if (var2 == 2) {
+				var3 = new class146(this);
+			} else if (var2 == 7) {
+				var3 = new class139(this);
+			} else if (var2 == 14) {
+				var3 = new class143(this);
+			} else if (var2 == 8) {
+				var3 = new class160(this);
+			} else if (var2 == 9) {
+				var3 = new class166(this);
+			} else if (var2 == 10) {
+				var3 = new class152(this);
+			} else if (var2 == 11) {
+				var3 = new class147(this);
+			} else if (var2 == 12) {
+				var3 = new class151(this);
+			} else {
+				if (var2 != 15) {
+					throw new RuntimeException("");
+				}
+
+				var3 = new class161(this);
+			}
+
+			((class142)var3).vmethod3254(var1);
+			this.field1322.addFirst((Node)var3);
+		}
+
+	}
+
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(Lfs;I)V",
+		garbageValue = "376498717"
+	)
+	public void method763(ClanSettings var1) {
+		if (this.field1321 == var1.field1353 && this.field1320 == var1.field1350) {
+			for (class142 var2 = (class142)this.field1322.last(); var2 != null; var2 = (class142)this.field1322.previous()) {
+				var2.vmethod3248(var1);
+			}
+
+			++var1.field1350;
+		} else {
+			throw new RuntimeException("");
+		}
+	}
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-1123792033"
+	)
+	static void method761() {
+		for (ObjectSound var0 = (ObjectSound)ObjectSound.objectSounds.last(); var0 != null; var0 = (ObjectSound)ObjectSound.objectSounds.previous()) {
+			if (var0.stream1 != null) {
+				KitDefinition.pcmStreamMixer.removeSubStream(var0.stream1);
+				var0.stream1 = null;
+			}
+
+			if (var0.stream2 != null) {
+				KitDefinition.pcmStreamMixer.removeSubStream(var0.stream2);
+				var0.stream2 = null;
+			}
+		}
+
+		ObjectSound.objectSounds.clear();
+	}
+
+	@ObfuscatedName("ax")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Z",
+		garbageValue = "59"
+	)
+	public static boolean method760(int var0) {
+		return (var0 >> 20 & 1) != 0;
+	}
 }

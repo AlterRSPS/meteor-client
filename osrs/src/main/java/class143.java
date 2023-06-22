@@ -1,110 +1,83 @@
-import java.awt.datatransfer.Clipboard;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fy")
-public class class143 extends class139 {
-    @ObfuscatedName("az")
-    static int loginBoxCenter;
-   @ObfuscatedName("af")
-   int field1325;
-   @ObfuscatedName("an")
-   byte field1326;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-      descriptor = "Lfa;"
-   )
-   final class142 this$0;
+@ObfuscatedName("fd")
+public class class143 extends class142 {
+	@ObfuscatedName("bs")
+	@Export("Widget_loadedInterfaces")
+	public static boolean[] Widget_loadedInterfaces;
+	@ObfuscatedName("at")
+	int field1315;
+	@ObfuscatedName("an")
+	boolean field1314;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lfh;"
+	)
+	@Export("this$0")
+	@ObfuscatedName("this$0")
+	final class145 this$0;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lfa;)V"
-   )
-   class143(class142 var1) {
-      this.this$0 = var1;
-      this.field1325 = -1;
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Lfh;)V"
+	)
+	class143(class145 var1) {
+		super();
+		this.this$0 = var1;
+		this.field1315 = -1;
+	}
 
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "(Lsg;I)V",
-            garbageValue = "168736686"
-    )
-    void vmethod3254(Buffer var1) {
-      this.field1325 = var1.readUnsignedShort();
-      this.field1326 = var1.readByte();
-   }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(Ltz;B)V",
+		garbageValue = "59"
+	)
+	@Export("vmethod3254")
+	void vmethod3254(Buffer var1) {
+		this.field1315 = var1.readUnsignedShort();
+		this.field1314 = var1.readUnsignedByte() == 1;
+	}
 
-    @ObfuscatedName("an")
-    @ObfuscatedSignature(
-            descriptor = "(Lfj;I)V",
-            garbageValue = "1712319228"
-    )
-    void vmethod3248(ClanSettings var1) {
-      var1.method866(this.field1325, this.field1326);
-   }
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(Lfs;B)V",
+		garbageValue = "-72"
+	)
+	@Export("vmethod3248")
+	void vmethod3248(ClanSettings var1) {
+		var1.method802(this.field1315, this.field1314);
+	}
 
-   @ObfuscatedName("af")
-   @ObfuscatedSignature(
-      descriptor = "(IIIIB)I",
-      garbageValue = "6"
-   )
-   static final int method812(int var0, int var1, int var2, int var3) {
-      return var0 * var2 + var3 * var1 >> 16;
-   }
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "790907813"
+	)
+	public static void method751() {
+		VarpDefinition.VarpDefinition_cached.clear();
+	}
 
-    @ObfuscatedName("mq")
-    @ObfuscatedSignature(
-            descriptor = "([Lmq;IB)V",
-            garbageValue = "119"
-    )
-    static final void runComponentCloseListeners(Widget[] var0, int var1) {
-      for(int var2 = 0; var2 < var0.length; ++var2) {
-         Widget var3 = var0[var2];
-         if (var3 != null) {
-            if (var3.type == 0) {
-               if (var3.children != null) {
-                  runComponentCloseListeners(var3.children, var1);
-               }
+	@ObfuscatedName("aa")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;B)V",
+		garbageValue = "60"
+	)
+	static final void method752(String var0) {
+		ParamComposition.method1010("Please remove " + var0 + " from your ignore list first");
+	}
 
-               InterfaceParent var4 = (InterfaceParent)Client.interfaceParents.get((long)var3.id);
-               if (var4 != null) {
-                  class127.runIntfCloseListeners(var4.group, var1);
-               }
-            }
+	@ObfuscatedName("no")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Ltb;",
+		garbageValue = "-2"
+	)
+	static class494 method755(int var0) {
+		class494 var1 = (class494)Client.Widget_cachedFonts.get((long)var0);
+		if (var1 == null) {
+			var1 = new class494(Messages.field1127, var0);
+		}
 
-            ScriptEvent var5;
-            if (var1 == 0 && var3.onDialogAbort != null) {
-               var5 = new ScriptEvent();
-               var5.widget = var3;
-               var5.args = var3.onDialogAbort;
-               HealthBarUpdate.runScriptEvent(var5);
-            }
-
-            if (var1 == 1 && var3.onSubChange != null) {
-               if (var3.childIndex >= 0) {
-                  Widget var6 = class165.getWidget(var3.id);
-                  if (var6 == null || var6.children == null || var3.childIndex >= var6.children.length || var3 != var6.children[var3.childIndex]) {
-                     continue;
-                  }
-               }
-
-               var5 = new ScriptEvent();
-               var5.widget = var3;
-               var5.args = var3.onSubChange;
-               HealthBarUpdate.runScriptEvent(var5);
-            }
-         }
-      }
-
-   }
-
-   @ObfuscatedName("ol")
-   @ObfuscatedSignature(
-      descriptor = "(I)Ljava/awt/datatransfer/Clipboard;",
-      garbageValue = "1000953659"
-   )
-   public static Clipboard method815() {
-      return ScriptFrame.client.getClipboard();
-   }
+		return var1;
+	}
 }

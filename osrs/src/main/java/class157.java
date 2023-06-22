@@ -2,46 +2,105 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("go")
-public class class157 extends class139 {
-    @ObfuscatedName("aw")
-    @ObfuscatedSignature(
-            descriptor = "Lnm;"
-    )
-    static AbstractArchive ObjectDefinition_modelsArchive;
-   @ObfuscatedName("af")
-   int field1391;
-   @ObfuscatedName("an")
-   int field1393;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-      descriptor = "Lfa;"
-   )
-   final class142 this$0;
+@ObfuscatedName("gd")
+public class class157 extends class142 {
+	@ObfuscatedName("af")
+	@Export("pcmSampleLength")
+	public static int pcmSampleLength;
+	@ObfuscatedName("kf")
+	@ObfuscatedSignature(
+		descriptor = "[Ltm;"
+	)
+	@Export("headIconPrayerSprites")
+	static SpritePixels[] headIconPrayerSprites;
+	@ObfuscatedName("at")
+	long field1386;
+	@ObfuscatedName("an")
+	String field1385;
+	@ObfuscatedName("av")
+	int field1384;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lfh;"
+	)
+	@Export("this$0")
+	@ObfuscatedName("this$0")
+	final class145 this$0;
 
-   @ObfuscatedSignature(
-      descriptor = "(Lfa;)V"
-   )
-   class157(class142 var1) {
-      this.this$0 = var1;
-   }
+	@ObfuscatedSignature(
+		descriptor = "(Lfh;)V"
+	)
+	class157(class145 var1) {
+		super();
+		this.this$0 = var1;
+		this.field1386 = -1L;
+		this.field1385 = null;
+		this.field1384 = 0;
+	}
 
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "(Lsg;I)V",
-            garbageValue = "168736686"
-    )
-    void vmethod3254(Buffer var1) {
-      this.field1391 = var1.readInt();
-      this.field1393 = var1.readInt();
-   }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(Ltz;B)V",
+		garbageValue = "59"
+	)
+	@Export("vmethod3254")
+	void vmethod3254(Buffer var1) {
+		if (var1.readUnsignedByte() != 255) {
+			--var1.offset;
+			this.field1386 = var1.readLong();
+		}
 
-    @ObfuscatedName("an")
-    @ObfuscatedSignature(
-            descriptor = "(Lfj;I)V",
-            garbageValue = "1712319228"
-    )
-    void vmethod3248(ClanSettings var1) {
-      var1.method861(this.field1391, this.field1393);
-   }
+		this.field1385 = var1.readStringCp1252NullTerminatedOrNull();
+		this.field1384 = var1.readUnsignedShort();
+	}
+
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(Lfs;B)V",
+		garbageValue = "-72"
+	)
+	@Export("vmethod3248")
+	void vmethod3248(ClanSettings var1) {
+		var1.method795(this.field1386, this.field1385, this.field1384);
+	}
+
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(II)I",
+		garbageValue = "-1636680829"
+	)
+	public static int method822(int var0) {
+		if (var0 > 0) {
+			return 1;
+		} else {
+			return var0 < 0 ? -1 : 0;
+		}
+	}
+
+	@ObfuscatedName("gx")
+	@ObfuscatedSignature(
+		descriptor = "(III)V",
+		garbageValue = "715423144"
+	)
+	static void method823(int var0, int var1) {
+		int[] var2 = new int[9];
+
+		for (int var3 = 0; var3 < var2.length; ++var3) {
+			int var4 = var3 * 32 + 15 + 128;
+			int var5 = class101.method587(var4);
+			int var6 = Rasterizer3D.Rasterizer3D_sine[var4];
+			int var8 = var1 - 334;
+			if (var8 < 0) {
+				var8 = 0;
+			} else if (var8 > 100) {
+				var8 = 100;
+			}
+
+			int var9 = (Client.zoomWidth - Client.zoomHeight) * var8 / 100 + Client.zoomHeight;
+			int var7 = var5 * var9 / 256;
+			var2[var3] = var6 * var7 >> 16;
+		}
+
+		Scene.Scene_buildVisiblityMap(var2, 500, 800, var0 * 334 / var1, 334);
+	}
 }

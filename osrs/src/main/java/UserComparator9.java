@@ -3,125 +3,104 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("el")
+@ObfuscatedName("ew")
 @Implements("UserComparator9")
 public class UserComparator9 extends AbstractUserComparator {
-    @ObfuscatedName("af")
-    final boolean reversed;
+	@ObfuscatedName("av")
+	static int field1169;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Lnq;"
+	)
+	@Export("musicTrackArchive")
+	public static AbstractArchive musicTrackArchive;
+	@ObfuscatedName("at")
+	@Export("reversed")
+	final boolean reversed;
 
-   public UserComparator9(boolean var1) {
-      this.reversed = var1;
-   }
+	public UserComparator9(boolean var1) {
+		super();
+		this.reversed = var1;
+	}
 
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "(Lpb;Lpb;I)I",
-            garbageValue = "150312401"
-    )
-    int compareBuddy(Buddy var1, Buddy var2) {
-      if (Client.worldId == var1.world && var2.world == Client.worldId) {
-         return this.reversed ? var1.getUsername().compareToTyped(var2.getUsername()) : var2.getUsername().compareToTyped(var1.getUsername());
-      } else {
-         return this.compareUser(var1, var2);
-      }
-   }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(Lqg;Lqg;B)I",
+		garbageValue = "-4"
+	)
+	@Export("compareBuddy")
+	int compareBuddy(Buddy var1, Buddy var2) {
+		if (Client.worldId == var1.world && var2.world == Client.worldId) {
+			return this.reversed ? var1.getUsername().compareToTyped(var2.getUsername()) : var2.getUsername().compareToTyped(var1.getUsername());
+		} else {
+			return this.compareUser(var1, var2);
+		}
+	}
 
-    @ObfuscatedName("compare")
-    public int compare(Object var1, Object var2) {
-      return this.compareBuddy((Buddy)var1, (Buddy)var2);
-   }
+	@Export("compare")
+	@ObfuscatedName("compare")
+	public int compare(Object var1, Object var2) {
+		return this.compareBuddy((Buddy)var1, (Buddy)var2);
+	}
 
-   @ObfuscatedName("af")
-   @ObfuscatedSignature(
-      descriptor = "(I)V",
-      garbageValue = "-798861149"
-   )
-   static void method703() {
-      if (class441.field3833 == null) {
-         class441.field3833 = new int[65536];
-         double var0 = 0.949999988079071D;
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(Lnq;Lnq;I)V",
+		garbageValue = "-2028269623"
+	)
+	public static void method661(AbstractArchive var0, AbstractArchive var1) {
+		KitDefinition.KitDefinition_archive = var0;
+		KitDefinition.KitDefinition_modelsArchive = var1;
+		KitDefinition.KitDefinition_fileCount = KitDefinition.KitDefinition_archive.getGroupFileCount(3);
+	}
 
-         for(int var2 = 0; var2 < 65536; ++var2) {
-            double var3 = 0.0078125D + (double)(var2 >> 10 & 63) / 64.0D;
-            double var5 = (double)(var2 >> 7 & 7) / 8.0D + 0.0625D;
-            double var7 = (double)(var2 & 127) / 128.0D;
-            double var9 = var7;
-            double var11 = var7;
-            double var13 = var7;
-            if (var5 != 0.0D) {
-               double var15;
-               if (var7 < 0.5D) {
-                  var15 = var7 * (var5 + 1.0D);
-               } else {
-                  var15 = var5 + var7 - var5 * var7;
-               }
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "79027296"
+	)
+	static final void method662() {
+		if (!ViewportMouse.ViewportMouse_false0) {
+			int var0 = Scene.Scene_cameraPitchSine;
+			int var1 = Scene.Scene_cameraPitchCosine;
+			int var2 = Scene.Scene_cameraYawSine;
+			int var3 = Scene.Scene_cameraYawCosine;
+			byte var4 = 50;
+			short var5 = 3500;
+			int var6 = (ViewportMouse.ViewportMouse_x - Rasterizer3D.method1187()) * var4 / Rasterizer3D.method1193();
+			int var7 = (ViewportMouse.ViewportMouse_y - Rasterizer3D.method1188()) * var4 / Rasterizer3D.method1193();
+			int var8 = (ViewportMouse.ViewportMouse_x - Rasterizer3D.method1187()) * var5 / Rasterizer3D.method1193();
+			int var9 = (ViewportMouse.ViewportMouse_y - Rasterizer3D.method1188()) * var5 / Rasterizer3D.method1193();
+			int var10 = JagexCache.method902(var7, var4, var1, var0);
+			int var11 = var1 * var4 - var0 * var7 >> 16;
+			var7 = var10;
+			var10 = JagexCache.method902(var9, var5, var1, var0);
+			int var12 = var1 * var5 - var9 * var0 >> 16;
+			var9 = var10;
+			var10 = class164.method848(var6, var11, var3, var2);
+			int var13 = ClientPreferences.method519(var6, var11, var3, var2);
+			var6 = var10;
+			var10 = class164.method848(var8, var12, var3, var2);
+			int var14 = ClientPreferences.method519(var8, var12, var3, var2);
+			class177.field1449 = (var6 + var10) / 2;
+			ViewportMouse.field2232 = (var9 + var7) / 2;
+			ViewportMouse.field2230 = (var13 + var14) / 2;
+			ViewportMouse.field2231 = (var10 - var6) / 2;
+			class1.field0 = (var9 - var7) / 2;
+			VarpDefinition.field1480 = (var14 - var13) / 2;
+			class393.field3632 = Math.abs(ViewportMouse.field2231);
+			class337.field3071 = Math.abs(class1.field0);
+			class136.field1277 = Math.abs(VarpDefinition.field1480);
+		}
+	}
 
-               double var17 = var7 * 2.0D - var15;
-               double var19 = var3 + 0.3333333333333333D;
-               if (var19 > 1.0D) {
-                  --var19;
-               }
-
-               double var23 = var3 - 0.3333333333333333D;
-               if (var23 < 0.0D) {
-                  ++var23;
-               }
-
-               if (var19 * 6.0D < 1.0D) {
-                  var9 = var17 + var19 * 6.0D * (var15 - var17);
-               } else if (var19 * 2.0D < 1.0D) {
-                  var9 = var15;
-               } else if (var19 * 3.0D < 2.0D) {
-                  var9 = var17 + 6.0D * (var15 - var17) * (0.6666666666666666D - var19);
-               } else {
-                  var9 = var17;
-               }
-
-               if (var3 * 6.0D < 1.0D) {
-                  var11 = 6.0D * (var15 - var17) * var3 + var17;
-               } else if (var3 * 2.0D < 1.0D) {
-                  var11 = var15;
-               } else if (var3 * 3.0D < 2.0D) {
-                  var11 = (var15 - var17) * (0.6666666666666666D - var3) * 6.0D + var17;
-               } else {
-                  var11 = var17;
-               }
-
-               if (var23 * 6.0D < 1.0D) {
-                  var13 = var23 * 6.0D * (var15 - var17) + var17;
-               } else if (var23 * 2.0D < 1.0D) {
-                  var13 = var15;
-               } else if (var23 * 3.0D < 2.0D) {
-                  var13 = 6.0D * (0.6666666666666666D - var23) * (var15 - var17) + var17;
-               } else {
-                  var13 = var17;
-               }
-            }
-
-            var9 = Math.pow(var9, var0);
-            var11 = Math.pow(var11, var0);
-            var13 = Math.pow(var13, var0);
-            int var25 = (int)(var9 * 256.0D);
-            int var16 = (int)(var11 * 256.0D);
-            int var26 = (int)(var13 * 256.0D);
-            int var18 = var26 + (var16 << 8) + (var25 << 16);
-            class441.field3833[var2] = var18 & 16777215;
-         }
-
-      }
-   }
-
-   @ObfuscatedName("aq")
-   @ObfuscatedSignature(
-      descriptor = "(II)Lec;",
-      garbageValue = "-500821406"
-   )
-   static class127 method705(int var0) {
-      class127 var1 = (class127)StructComposition.findEnumerated(class121.method721(), var0);
-      if (var1 == null) {
-         var1 = class127.field1252;
-      }
-
-      return var1;
-   }
+	@ObfuscatedName("nm")
+	@ObfuscatedSignature(
+		descriptor = "(Lmb;I)Z",
+		garbageValue = "-215765606"
+	)
+	@Export("isComponentHidden")
+	static boolean isComponentHidden(Widget var0) {
+		return var0.isHidden;
+	}
 }

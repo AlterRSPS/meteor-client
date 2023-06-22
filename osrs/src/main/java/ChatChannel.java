@@ -3,108 +3,159 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cp")
+@ObfuscatedName("dm")
 @Implements("ChatChannel")
 public class ChatChannel {
-   @ObfuscatedName("cz")
-   static int field817;
-    @ObfuscatedName("jb")
-    @ObfuscatedSignature(
-            descriptor = "Ltq;"
-    )
-    static SpritePixels compass;
-    @ObfuscatedName("an")
-    @ObfuscatedSignature(
-            descriptor = "[Lcq;"
-    )
-    Message[] messages = new Message[100];
-    @ObfuscatedName("aw")
-    int count;
+	@ObfuscatedName("vc")
+	@ObfuscatedSignature(
+		descriptor = "Lrk;"
+	)
+	@Export("platformInfo")
+	static PlatformInfo platformInfo;
+	@ObfuscatedName("fn")
+	@ObfuscatedSignature(
+		descriptor = "Lny;"
+	)
+	@Export("archive19")
+	static Archive archive19;
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "[Lcg;"
+	)
+	@Export("messages")
+	Message[] messages;
+	@ObfuscatedName("av")
+	@Export("count")
+	int count;
 
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;S)Lcq;",
-            garbageValue = "-22035"
-    )
-    Message addMessage(int var1, String var2, String var3, String var4) {
-      Message var5 = this.messages[99];
+	ChatChannel() {
+		super();
+		this.messages = new Message[100];
+	}
 
-      for(int var6 = this.count; var6 > 0; --var6) {
-         if (var6 != 100) {
-            this.messages[var6] = this.messages[var6 - 1];
-         }
-      }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;S)Lcg;",
+		garbageValue = "10654"
+	)
+	@Export("addMessage")
+	Message addMessage(int var1, String var2, String var3, String var4) {
+		Message var5 = this.messages[99];
 
-      if (var5 == null) {
-         var5 = new Message(var1, var2, var4, var3);
-      } else {
-         var5.remove();
-         var5.removeDual();
-         var5.set(var1, var2, var4, var3);
-      }
+		for (int var6 = this.count; var6 > 0; --var6) {
+			if (var6 != 100) {
+				this.messages[var6] = this.messages[var6 - 1];
+			}
+		}
 
-      this.messages[0] = var5;
-      if (this.count < 100) {
-         ++this.count;
-      }
+		if (var5 == null) {
+			var5 = new Message(var1, var2, var4, var3);
+		} else {
+			var5.remove();
+			var5.removeDual();
+			var5.set(var1, var2, var4, var3);
+		}
 
-      return var5;
-   }
+		this.messages[0] = var5;
+		if (this.count < 100) {
+			++this.count;
+		}
 
-    @ObfuscatedName("an")
-    @ObfuscatedSignature(
-            descriptor = "(II)Lcq;",
-            garbageValue = "-2100835042"
-    )
-    Message getMessage(int var1) {
-      return var1 >= 0 && var1 < this.count ? this.messages[var1] : null;
-   }
+		return var5;
+	}
 
-    @ObfuscatedName("aw")
-    @ObfuscatedSignature(
-            descriptor = "(I)I",
-            garbageValue = "1727774568"
-    )
-    int size() {
-      return this.count;
-   }
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(II)Lcg;",
+		garbageValue = "-651890081"
+	)
+	@Export("getMessage")
+	Message getMessage(int var1) {
+		return var1 >= 0 && var1 < this.count ? this.messages[var1] : null;
+	}
 
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "(Lsg;Lro;B)Lro;",
-            garbageValue = "-78"
-    )
-    static final IterableNodeHashTable readStringIntParameters(Buffer var0, IterableNodeHashTable var1) {
-      int var2 = var0.readUnsignedByte();
-      int var3;
-      if (var1 == null) {
-         var3 = class70.method442(var2);
-         var1 = new IterableNodeHashTable(var3);
-      }
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "387779060"
+	)
+	@Export("size")
+	int size() {
+		return this.count;
+	}
 
-      for(var3 = 0; var3 < var2; ++var3) {
-         boolean var4 = var0.readUnsignedByte() == 1;
-         int var5 = var0.readMedium();
-         Object var6;
-         if (var4) {
-            var6 = new ObjectNode(var0.readStringCp1252NullTerminated());
-         } else {
-            var6 = new IntegerNode(var0.readInt());
-         }
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "(IZB)Ljava/lang/String;",
+		garbageValue = "72"
+	)
+	@Export("intToString")
+	public static String intToString(int var0, boolean var1) {
+		if (var1 && var0 >= 0) {
+			int var3 = var0;
+			String var2;
+			if (var1 && var0 >= 0) {
+				int var4 = 2;
 
-         var1.put((Node)var6, (long)var5);
-      }
+				for (int var5 = var0 / 10; var5 != 0; ++var4) {
+					var5 /= 10;
+				}
 
-      return var1;
-   }
+				char[] var6 = new char[var4];
+				var6[0] = '+';
 
-   @ObfuscatedName("bq")
-   @ObfuscatedSignature(
-      descriptor = "(Lmq;III)V",
-      garbageValue = "-2141558177"
-   )
-   public static void method470(Widget var0, int var1, int var2) {
-      var0.field2894.bodyColors[var1] = var2;
-      var0.field2894.method1702();
-   }
+				for (int var7 = var4 - 1; var7 > 0; --var7) {
+					int var8 = var3;
+					var3 /= 10;
+					int var9 = var8 - var3 * 10;
+					if (var9 >= 10) {
+						var6[var7] = (char)(var9 + 87);
+					} else {
+						var6[var7] = (char)(var9 + 48);
+					}
+				}
+
+				var2 = new String(var6);
+			} else {
+				var2 = Integer.toString(var0, 10);
+			}
+
+			return var2;
+		} else {
+			return Integer.toString(var0);
+		}
+	}
+
+	@ObfuscatedName("iv")
+	@ObfuscatedSignature(
+		descriptor = "(S)V",
+		garbageValue = "-24765"
+	)
+	static void method439() {
+		for (class210 var0 = (class210)Client.field627.last(); var0 != null; var0 = (class210)Client.field627.previous()) {
+			var0.remove();
+		}
+
+	}
+
+	@ObfuscatedName("mf")
+	@ObfuscatedSignature(
+		descriptor = "(III)V",
+		garbageValue = "1221554668"
+	)
+	static final void method440(int var0, int var1) {
+		if (Client.currentClanChannels[var0] != null) {
+			if (var1 >= 0 && var1 < Client.currentClanChannels[var0].method842()) {
+				ClanChannelMember var2 = (ClanChannelMember)Client.currentClanChannels[var0].members.get(var1);
+				if (var2.rank == -1) {
+					PacketBufferNode var3 = ObjectComposition.getPacketBufferNode(ClientPacket.field2508, Client.packetWriter.isaacCipher);
+					var3.packetBuffer.writeByte(3 + Widget.stringCp1252NullTerminatedByteSize(var2.username.getName()));
+					var3.packetBuffer.writeByte(var0);
+					var3.packetBuffer.writeShort(var1);
+					var3.packetBuffer.writeStringCp1252NullTerminated(var2.username.getName());
+					Client.packetWriter.addNode(var3);
+				}
+			}
+		}
+	}
 }

@@ -1,174 +1,139 @@
+import java.util.Arrays;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cx")
+@ObfuscatedName("cj")
 @Implements("GraphicsObject")
 public class GraphicsObject extends Renderable {
-    @ObfuscatedName("sl")
-    static boolean ClanChat_inClanChat;
-    @ObfuscatedName("af")
-    int id;
-    @ObfuscatedName("an")
-    int cycleStart;
-    @ObfuscatedName("aw")
-    int plane;
-    @ObfuscatedName("ac")
-    int x;
-    @ObfuscatedName("au")
-    int y;
-    @ObfuscatedName("ab")
-    int z;
-    @ObfuscatedName("aq")
-    @ObfuscatedSignature(
-            descriptor = "Lha;"
-    )
-    SequenceDefinition sequenceDefinition;
-    @ObfuscatedName("al")
-    int frame;
-    @ObfuscatedName("at")
-    int frameCycle;
-    @ObfuscatedName("aa")
-    boolean isFinished;
+	@ObfuscatedName("qe")
+	@ObfuscatedSignature(
+		descriptor = "Lsp;"
+	)
+	@Export("HitSplatDefinition_cachedSprites")
+	static class485 HitSplatDefinition_cachedSprites;
+	// $FF: renamed from: id int
+	@ObfuscatedName("at")
+	@Export("id")
+	int field_20;
+	@ObfuscatedName("an")
+	@Export("cycleStart")
+	int cycleStart;
+	@ObfuscatedName("av")
+	@Export("plane")
+	int plane;
+	// $FF: renamed from: x int
+	@ObfuscatedName("as")
+	@Export("x")
+	int field_21;
+	// $FF: renamed from: y int
+	@ObfuscatedName("ax")
+	@Export("y")
+	int field_22;
+	// $FF: renamed from: z int
+	@ObfuscatedName("ap")
+	@Export("z")
+	int field_23;
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "Lhy;"
+	)
+	@Export("sequenceDefinition")
+	SequenceDefinition sequenceDefinition;
+	@ObfuscatedName("ak")
+	@Export("frame")
+	int frame;
+	@ObfuscatedName("ae")
+	@Export("frameCycle")
+	int frameCycle;
+	@ObfuscatedName("af")
+	@Export("isFinished")
+	boolean isFinished;
 
-   GraphicsObject(int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
-      this.frame = 0;
-      this.frameCycle = 0;
-      this.isFinished = false;
-      this.id = var1;
-      this.plane = var2;
-      this.x = var3;
-      this.y = var4;
-      this.z = var5;
-      this.cycleStart = var7 + var6;
-      int var8 = ItemContainer.SpotAnimationDefinition_get(this.id).sequence;
-      if (var8 != -1) {
-         this.isFinished = false;
-         this.sequenceDefinition = ItemContainer.SequenceDefinition_get(var8);
-      } else {
-         this.isFinished = true;
-      }
+	GraphicsObject(int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+		super();
+		this.frame = 0;
+		this.frameCycle = 0;
+		this.isFinished = false;
+		this.field_20 = var1;
+		this.plane = var2;
+		this.field_21 = var3;
+		this.field_22 = var4;
+		this.field_23 = var5;
+		this.cycleStart = var7 + var6;
+		int var8 = class53.SpotAnimationDefinition_get(this.field_20).sequence;
+		if (var8 != -1) {
+			this.isFinished = false;
+			this.sequenceDefinition = WorldMapLabelSize.SequenceDefinition_get(var8);
+		} else {
+			this.isFinished = true;
+		}
 
-   }
+	}
 
-    @ObfuscatedName("af")
-    @ObfuscatedSignature(
-            descriptor = "(IB)V",
-            garbageValue = "-34"
-    )
-    final void advance(int var1) {
-      if (!this.isFinished) {
-         this.frameCycle += var1;
-         if (!this.sequenceDefinition.isCachedModelIdSet()) {
-            while(this.frameCycle > this.sequenceDefinition.frameLengths[this.frame]) {
-               this.frameCycle -= this.sequenceDefinition.frameLengths[this.frame];
-               ++this.frame;
-               if (this.frame >= this.sequenceDefinition.frameIds.length) {
-                  this.isFinished = true;
-                  break;
-               }
-            }
-         } else {
-            this.frame += var1;
-            if (this.frame >= this.sequenceDefinition.method1128()) {
-               this.isFinished = true;
-            }
-         }
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(IB)V",
+		garbageValue = "-20"
+	)
+	@Export("advance")
+	final void advance(int var1) {
+		if (!this.isFinished) {
+			this.frameCycle += var1;
+			if (!this.sequenceDefinition.isCachedModelIdSet()) {
+				while (this.frameCycle > this.sequenceDefinition.frameLengths[this.frame]) {
+					this.frameCycle -= this.sequenceDefinition.frameLengths[this.frame];
+					++this.frame;
+					if (this.frame >= this.sequenceDefinition.frameIds.length) {
+						this.isFinished = true;
+						break;
+					}
+				}
+			} else {
+				this.frame += var1;
+				if (this.frame >= this.sequenceDefinition.method1083()) {
+					this.isFinished = true;
+				}
+			}
 
-      }
-   }
+		}
+	}
 
-    @ObfuscatedName("an")
-    @ObfuscatedSignature(
-            descriptor = "(B)Lit;",
-            garbageValue = "-112"
-    )
-    protected final Model getModel() {
-      SpotAnimationDefinition var1 = ItemContainer.SpotAnimationDefinition_get(this.id);
-      Model var2;
-      if (!this.isFinished) {
-         var2 = var1.getModel(this.frame);
-      } else {
-         var2 = var1.getModel(-1);
-      }
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(I)Ljd;",
+		garbageValue = "-1953039490"
+	)
+	@Export("getModel")
+	protected final Model getModel() {
+		SpotAnimationDefinition var1 = class53.SpotAnimationDefinition_get(this.field_20);
+		Model var2;
+		if (!this.isFinished) {
+			var2 = var1.getModel(this.frame);
+		} else {
+			var2 = var1.getModel(-1);
+		}
 
-      return var2 == null ? null : var2;
-   }
+		return var2 == null ? null : var2;
+	}
 
-   @ObfuscatedName("an")
-   @ObfuscatedSignature(
-      descriptor = "(S)V",
-      garbageValue = "152"
-   )
-   public static void method432() {
-      if (MouseHandler.MouseHandler_instance != null) {
-         MouseHandler var0 = MouseHandler.MouseHandler_instance;
-         synchronized(MouseHandler.MouseHandler_instance) {
-            MouseHandler.MouseHandler_instance = null;
-         }
-      }
+	@ObfuscatedName("bm")
+	@ObfuscatedSignature(
+		descriptor = "(Lmb;Lmk;ZI)V",
+		garbageValue = "1991291892"
+	)
+	public static void method417(Widget var0, PlayerComposition var1, boolean var2) {
+		var0.modelType = 7;
+		var0.field3058 = new PlayerComposition(var1);
+		if (!var2) {
+			var0.field3058.equipment = Arrays.copyOf(var0.field3058.field2869, var0.field3058.field2869.length);
+			var0.field3058.method1728();
+		}
 
-   }
+	}
 
-   @ObfuscatedName("ao")
-   static final void method429(long var0) {
-      ViewportMouse.ViewportMouse_entityTags[++ViewportMouse.ViewportMouse_entityCount - 1] = var0;
-   }
-
-   @ObfuscatedName("is")
-   @ObfuscatedSignature(
-      descriptor = "(IIB)V",
-      garbageValue = "57"
-   )
-   static final void method433(int var0, int var1) {
-      if (var0 < 128) {
-         var0 = 128;
-      } else if (var0 > 383) {
-         var0 = 383;
-      }
-
-      if (WorldMapSectionType.cameraPitch < var0) {
-         WorldMapSectionType.cameraPitch = (var0 - WorldMapSectionType.cameraPitch) * WorldMapElement.field1503 / 1000 + WorldMapSectionType.cameraPitch + Archive.field3467;
-         if (WorldMapSectionType.cameraPitch > var0) {
-            WorldMapSectionType.cameraPitch = var0;
-         }
-      } else if (WorldMapSectionType.cameraPitch > var0) {
-         WorldMapSectionType.cameraPitch -= (WorldMapSectionType.cameraPitch - var0) * WorldMapElement.field1503 / 1000 + Archive.field3467;
-         if (WorldMapSectionType.cameraPitch < var0) {
-            WorldMapSectionType.cameraPitch = var0;
-         }
-      }
-
-      var1 &= 2047;
-      int var2 = var1 - class125.cameraYaw;
-      if (var2 > 1024) {
-         var2 -= 2048;
-      } else if (var2 < -1024) {
-         var2 += 2048;
-      }
-
-      if (var2 > 0) {
-         class125.cameraYaw = class125.cameraYaw + Archive.field3467 + var2 * WorldMapElement.field1503 / 1000;
-         class125.cameraYaw &= 2047;
-      } else if (var2 < 0) {
-         class125.cameraYaw -= -var2 * WorldMapElement.field1503 / 1000 + Archive.field3467;
-         class125.cameraYaw &= 2047;
-      }
-
-      int var3 = var1 - class125.cameraYaw;
-      if (var3 > 1024) {
-         var3 -= 2048;
-      } else if (var3 < -1024) {
-         var3 += 2048;
-      }
-
-      if (var3 < 0 && var2 > 0 || var3 > 0 && var2 < 0) {
-         class125.cameraYaw = var1;
-      }
-
-   }
-
-   public GraphicsObject() {
-   }
+	public GraphicsObject() {
+		super();
+	}
 }

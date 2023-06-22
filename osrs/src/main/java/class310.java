@@ -1,16 +1,29 @@
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lw")
+@ObfuscatedName("lc")
 public class class310 {
-   @ObfuscatedName("af")
-   @ObfuscatedSignature(
-      descriptor = "(II)V",
-      garbageValue = "233637321"
-   )
-   static void method1689(int var0) {
-      class424.field3785 = var0;
-      class424.field3787 = new class424[var0];
-      class424.field3786 = 0;
-   }
+	@ObfuscatedName("fq")
+	@ObfuscatedSignature(
+		descriptor = "Lny;"
+	)
+	@Export("archive13")
+	static Archive archive13;
+	@ObfuscatedName("at")
+	int field2798;
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "Lcu;"
+	)
+	class53 field2797;
+
+	@ObfuscatedSignature(
+		descriptor = "(ILcu;)V"
+	)
+	class310(int var1, class53 var2) {
+		super();
+		this.field2798 = var1;
+		this.field2797 = var2;
+	}
 }
